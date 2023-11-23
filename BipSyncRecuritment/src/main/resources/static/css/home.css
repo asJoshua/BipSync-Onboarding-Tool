@@ -1,0 +1,13 @@
+:root{
+    --primary-color: #2A2731;
+    --secondary-color: #5D5D5D;
+    --blue-color: #7286A0;
+    --white-color: #FFF;
+    --accent-color: #F4F4F4;
+    --bg-color: linear-gradient(#2A2731,#5D5D5D);
+    --button-color: #F6653C;
+}
+
+.h1{
+    color: red;
+}

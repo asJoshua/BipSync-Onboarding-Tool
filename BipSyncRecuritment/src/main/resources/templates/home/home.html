@@ -3,9 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
-    <link th:replace="fragments/header :: bootstrap-css"/>
-</head>
+    <link th:replace="~{fragments/header :: bootstrap-css}"/>
+    <link rel="stylesheet" type="text/css" href="/css/home.css"/>
+<style>
+    #bg-wrapper{
+        height: 350px;
+        background-image: linear-gradient(#2A2731,#5D5D5D);
+    }
+
+    #txt-wrapper{
+        height: 100%;
+    }
+
+    #company-name{
+        color: white;
+    }
+
+</style>
 <body>
-    <h1>BipSync</h1>
+<div id="containers">
+    <div th:replace="~{fragments/header :: header}"/>
+</div>
+<section id="bg-wrapper">
+    <figure id="txt-wrapper" class="d-flex flex-column justify-content-center">
+        <h1 id="company-name" class="text-center">BipSync <br> Onboarding</h1>
+    </figure>
+</section>
+<section id="buttons">
+    <button type="button">
+        New Recruit
+    </button>
+    <button type="button">
+        Current Staff
+    </button>
+</section>
 </body>
 </html>
