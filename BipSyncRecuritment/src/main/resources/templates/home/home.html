@@ -36,9 +36,11 @@
     <button type="button">
         New Recruit
     </button>
-    <button type="button">
+    <button  type="button">
+
         Current Staff
     </button>
+    <a th:href="@{/employee}" class="btn btn-primary">Current Staff</a>
 </section>
 <span sec:authorize="isAuthenticated"><a th:href="@{/logout}">Logout</a></span>
 </body>

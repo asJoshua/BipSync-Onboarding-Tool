@@ -44,6 +44,13 @@ public class Employee {
         return dateOfBirth;
     }
 
+    public String getPosition() {
+        return position;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 }
 
 

@@ -21,5 +21,9 @@ public class EmployeeController {
         modelAndView.addObject("employees", employees);
         return modelAndView;
     }
+    @GetMapping("/viewEmployees")
+    public String showCurrentEmployeesList() {
+        return "employees/employee";
+    }
 
 }
