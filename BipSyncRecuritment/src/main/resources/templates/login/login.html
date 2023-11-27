@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/styles/style.css" />
+    <meta charset="ISO-8859-1">
+    <title>Login</title>
+
+</head>
+<body class ="body-login">
+
+
+
+
+<div class = "login-container">
+    <div class="login-form-container">
+
+
+        <div th:if="${param.error}">
+            <div class="error-message">
+                <p>Username or password is Incorrect</p>
+            </div>
+        </div>
+
+
+
+        <div th:if="${param.logout}">
+            <div class="logout-message">
+                <p>Successfully logged out</p>
+            </div>
+        </div>
+
+        <h2 class="login-title">BipSync</h2>
+        <form method="post"  role="login-form"  th:action="@{/login}"  th:object="${user}"
+
+        >
+
+            <div class="form-group">
+                <label  class="username-label" for="username">Username</label>
+                <input th:field="*{username}"  class="form-control" aria-describedby="emailHelp" type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="login-form-group">
+                <label  class="password-label" for="password">Password</label>
+                <input th:field="*{password}"  class="form-control" type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+<div class="btn-for-login">
+            <button type="submit"  class="login-btn">Login</button>
+</div>
+        </form>
+
+
+    </div>
+</div>
+
+</body>
+</html>
