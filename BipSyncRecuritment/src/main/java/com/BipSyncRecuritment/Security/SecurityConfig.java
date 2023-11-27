@@ -31,12 +31,12 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http.csrf().disable().authorizeHttpRequests()
-                .requestMatchers("/dash","/css/**", "/home", "/home/newRecruit").permitAll()
+                .requestMatchers("/dash","/css/**", "/home", "/home/newRecruit","/styles/**").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/dash", true).permitAll()
+                .defaultSuccessUrl("/home", true).permitAll()
                 .and()
                 .logout()
                 .invalidateHttpSession(true)

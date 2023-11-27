@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html <html xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
@@ -24,6 +24,7 @@
 <div id="containers">
     <div th:replace="~{fragments/header :: header}"/>
 </div>
+<h2 th:text="${userdetail.userFirstName}" class="dashboard__user-name">User's Name</h2>
 <section id="bg-wrapper">
     <figure id="txt-wrapper" class="d-flex flex-column justify-content-center">
         <h1 id="company-name" class="text-center">BipSync <br> Onboarding</h1>
@@ -37,5 +38,6 @@
         Current Staff
     </button>
 </section>
+<span sec:authorize="isAuthenticated"><a th:href="@{/logout}">Logout</a></span>
 </body>
 </html>
