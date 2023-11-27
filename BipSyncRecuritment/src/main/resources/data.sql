@@ -7,6 +7,6 @@ values ('test', '$2a$12$4ns3D5/4F9k2YhkBO19onejm.DIhCZC/xyxJnRdMkzQm7b1BjBSEO','
 insert into user_roles(role_id, user_role)
 values(1,'ADMIN');
 
-insert into recruits(firstName, lastName, dateOfBirth, phoneNumber, passportNumber, nationalInsuranceNumber, email, position, dateOfHire, emergencyContactName, emergencyContactPhone)
-values ('Heather', 'Perkins', '17/02/1999', '0778823744', '123456', '12456', 'hperkins@bipsync.com', 'Head of onboarding', '04/01/2020', 'Beatriz', '012345678')
+insert into recruits(first_name, last_name, date_of_birth, phone_number, passport_number, national_insurance_number, email, position, date_of_hire, emergency_contact_name, emergency_contact_phone)
+values ('Heather', 'Perkins', '1999/02/17', '0778823744', '123456', '12456', 'hperkins@bipsync.com', 'Head of onboarding', '2020/01/02', 'Beatriz', '012345678')
 
