@@ -1,0 +1,16 @@
+body{
+    background-color: #2A2731;
+}
+.table {
+    background-color: #F4F4F4;
+    margin: auto;
+    width: 70% !important;
+
+}
+h1{
+    text-align: center;
+    color: #F4F4F4;
+}
+.btn-primary{
+    background-color: #F6653C;
+}
