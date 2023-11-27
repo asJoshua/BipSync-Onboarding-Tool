@@ -13,7 +13,7 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
-
+//Mapping to display all current employees on the page
     @GetMapping("/employee")
     public ModelAndView getAllEmployees() {
         List<Employee> employees = employeeService.getAllEmployees();
@@ -21,9 +21,6 @@ public class EmployeeController {
         modelAndView.addObject("employees", employees);
         return modelAndView;
     }
-    @GetMapping("/viewEmployees")
-    public String showCurrentEmployeesList() {
-        return "employees/employee";
-    }
+
 
 }

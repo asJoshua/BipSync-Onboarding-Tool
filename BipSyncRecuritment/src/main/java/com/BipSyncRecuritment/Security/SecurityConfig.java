@@ -2,6 +2,7 @@ package com.BipSyncRecuritment.Security;
 
 import com.BipSyncRecuritment.login.UserLoginDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -31,7 +32,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http.csrf().disable().authorizeHttpRequests()
-                .requestMatchers("/css/**", "/home", "/home/newRecruit","/employee","/employees/employee","/styles/**","/viewEmployees").permitAll()
+                .requestMatchers("/css/**", "/home", "/home/newRecruit","/styles/**","/viewEmployees").permitAll()
+                .requestMatchers("/employee").hasRole("ADMIN")
                 .and()
                 .formLogin()
                 .loginPage("/login")

@@ -34,7 +34,7 @@ public class LoginTests {
                         .param("password", "test")
                         .with(SecurityMockMvcRequestPostProcessors.csrf()))
                 .andExpect(MockMvcResultMatchers.status().is3xxRedirection())
-                .andExpect(MockMvcResultMatchers.redirectedUrl("/dash"));
+                .andExpect(MockMvcResultMatchers.redirectedUrl("/home"));
     }
     @Test
     public void testInvalidAdminLogin() throws Exception {
