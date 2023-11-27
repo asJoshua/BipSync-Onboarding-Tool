@@ -8,11 +8,11 @@ import lombok.Data;
 public class NewRecruit {
     private Long id;
     private String firstName;
-    private String LastName;
+    private String lastName;
     private String DoB;
     private int phoneNumber;
     private int passportNumber;
-    private String nationalInsuranceNumber;
+    private int nationalInsuranceNumber;
     private String email;
     private String position;
     private String dateOfHire;

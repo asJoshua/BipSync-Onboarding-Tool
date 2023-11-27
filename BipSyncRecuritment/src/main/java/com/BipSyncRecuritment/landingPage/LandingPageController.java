@@ -21,7 +21,9 @@ public class LandingPageController {
 
     @PostMapping("/newRecruit")
     public ModelAndView addNewRecruit(NewRecruit newRecruit){
-        System.out.print(newRecruit);
+
+        NewRecruitService newRecruitService = NewRecruitService.getInstance();
+        newRecruitService.addNewRecruit(newRecruit);
 
         ModelAndView modelAndView = new ModelAndView("redirect:/home");
         return modelAndView;
