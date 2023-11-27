@@ -1,3 +1,4 @@
+
 drop table if exists user_roles;
 drop table if exists users;
 create table if not exists users

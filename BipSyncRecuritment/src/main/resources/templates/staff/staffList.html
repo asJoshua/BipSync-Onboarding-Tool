@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Staff Members</title>
+</head>
+<body>
+<div>
+  <table>
+    <thread>
+      <tr>
+      <th>Staff Name</th>
+    </thread>
+    <tbody>
+    <!--/*@thymesVar id="employeeList" type=""*/-->
+    <!--/*@thymesVar id="StaffList" type=""*/-->
+    <tr th:each="Staff : ${StaffList}">
+    <!--/*@thymesVar id="Staff" type=""*/-->
+    <td th:text="${Staff}"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
