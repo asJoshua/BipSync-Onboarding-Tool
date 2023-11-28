@@ -21,6 +21,27 @@ insert into recruits(first_name, last_name, date_of_birth, phone_number, passpor
 values ('Harper', 'Mitchell', '1997/10/18', '07865434545', '765678932', 'JW134678D', 'apatel@bipsync.com', 'Software Engineer', '2023/07/14', 'Josh', '079345789');
 
 insert into tasks(task_id, task_name, task_due_date, task_responsibility)
-values(1,'Set up employee with starter meeting with CEO','2023/12/22','Hiring Manager');
+values(1,'Add to Company group lists and calenders','2023/12/20','HR');
+insert into tasks(task_id, task_name, task_due_date, task_responsibility)
+values(2,'Create email accounts','2023/12/17','IT');
+insert into tasks(task_id, task_name, task_due_date, task_responsibility)
+values(3,'Prepare Contracts','2023/12/15','HR');
+insert into tasks(task_id, task_name, task_due_date, task_responsibility)
+values(4,'Sign contracts,tax forms','2023/12/18','HR');
+insert into tasks(task_id, task_name, task_due_date, task_responsibility)
+values(5,'Check confirmation of work permits','2023/12/14','HR');
+insert into tasks(task_id, task_name, task_due_date, task_responsibility)
+values(6,'Ensure correct IT equipment is updated and ready to use','2023/12/28','IT');
+insert into tasks(task_id, task_name, task_due_date, task_responsibility)
+values(7,'Set up Desk','2023/12/28','Facilities');
+insert into tasks(task_id, task_name, task_due_date, task_responsibility)
+values(8,'Ensure all access cards are prepared','2023/12/27','IT');
+
 
 insert into employee_tasks(t_recruit_id, t_task_id) values(1,1);
+insert into employee_tasks(t_recruit_id, t_task_id) values(4,2);
+insert into employee_tasks(t_recruit_id, t_task_id) values(1,3);
+insert into employee_tasks(t_recruit_id, t_task_id) values(2,4);
+insert into employee_tasks(t_recruit_id, t_task_id) values(5,5);
+insert into employee_tasks(t_recruit_id, t_task_id) values(3,6);
+insert into employee_tasks(t_recruit_id, t_task_id) values(4,7);
