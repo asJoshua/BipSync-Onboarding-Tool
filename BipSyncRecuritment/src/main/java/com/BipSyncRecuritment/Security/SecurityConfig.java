@@ -32,7 +32,7 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http.csrf().disable().authorizeHttpRequests()
-                .requestMatchers("/css/**", "/home", "/home/newRecruit","/styles/**","/viewEmployees","/employee/{recruitId}","/employee/{recruitId}/add-task").permitAll()
+                .requestMatchers("/css/**", "/home", "/home/newRecruit","/styles/**","/viewEmployees","/employee/{recruitId}","/employee/{recruitId}/add-task","/employee/{recruitId}/remove-task/{taskId}","/employee/{recruitId}/completed-tasks").permitAll()
                 .requestMatchers("/employee").hasRole("ADMIN")
                 .and()
                 .formLogin()

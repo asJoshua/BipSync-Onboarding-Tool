@@ -9,6 +9,9 @@ import java.util.List;
 public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
+
+    @Autowired
+    private TaskRepository taskRepository;
     public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
     }
@@ -19,5 +22,11 @@ public class EmployeeService {
 
     public void saveEmployee(Employee employee) {
         employeeRepository.save(employee);
+    }
+    public List<Task> getCompletedTasks(Long recruitId) {
+        Employee employee = employeeRepository.findById(recruitId)
+                .orElseThrow(() -> new RuntimeException("Employee not found"));
+
+        return taskRepository.findAllById(employee.getCompletedTasks());
     }
 }

@@ -52,3 +52,7 @@ form {
     text-align: center;
 
 }
+.btn-complete{
+    background-color: #00A36C;
+    border-radius: 8px;
+}

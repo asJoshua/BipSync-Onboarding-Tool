@@ -1,5 +1,6 @@
 package com.BipSyncRecuritment.employees;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -15,6 +16,7 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long recruitId;  // Change 'id' to 'recruitId'
+
     private String firstName;
     private String lastName;
     private LocalDate dateOfBirth;
@@ -41,6 +43,14 @@ public class Employee {
     public Set<Task> getTasks() {
         return tasks;
     }
+
+
+    @ElementCollection
+    @CollectionTable(name = "completed_tasks",
+            joinColumns = @JoinColumn(name = "c_recruit_id"))
+    @Column(name = "c_task_id")
+    private Set<Long> completedTasks = new HashSet<>();
+
     public List<Task> getTasksOrderByDueDate() {
         return tasks.stream()
                 .sorted(Comparator.comparing(Task::getTaskDueDate))
@@ -71,6 +81,23 @@ public class Employee {
 
     public String getEmail() {
         return email;
+    }
+
+    public Set<Long> getCompletedTasks() {
+        return completedTasks;
+    }
+
+    public void setCompletedTasks(Set<Long> completedTasks) {
+        this.completedTasks = completedTasks;
+    }
+
+    public void completeTask(Long taskId) {
+        completedTasks.add(taskId);
+
+
+    }
+    public void removeTasks(Long taskId) {
+        tasks.removeIf(task -> task.getTaskId().equals(taskId));
     }
 }
 

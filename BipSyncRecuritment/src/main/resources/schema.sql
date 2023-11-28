@@ -1,5 +1,6 @@
 drop table if exists user_roles;
 drop table if exists users;
+drop table if exists completed_tasks;
 drop table if exists employee_tasks;
 drop table if exists tasks;
 drop table if exists recruits;
@@ -49,3 +50,10 @@ create table employee_tasks(
     foreign key (t_task_id) references  tasks(task_id)
 );
 
+create table completed_tasks(
+    c_recruit_id bigint,
+    c_task_id bigint,
+    primary key (c_recruit_id,c_task_id),
+    foreign key (c_recruit_id) references recruits(recruit_id),
+    foreign key (c_task_id) references tasks(task_id)
+);

@@ -1,6 +1,7 @@
 package com.BipSyncRecuritment.employees;
 
 import jakarta.persistence.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -12,7 +13,9 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long taskId;
+
     private  String taskName;
+    @DateTimeFormat(pattern = "dd-mm-yyyy")
     private LocalDate taskDueDate;
 
     @Column(name = "task_responsibility")
@@ -53,6 +56,7 @@ public Task(String taskName, LocalDate taskDueDate, String taskResponsibility){
     public String setTaskName(String taskName) {
         return this.taskName=taskName;
     }
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     public LocalDate setTaskDueDate(LocalDate taskDueDate){
         return this.taskDueDate=taskDueDate;
     }

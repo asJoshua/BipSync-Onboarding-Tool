@@ -20,10 +20,19 @@
     </thead>
     <tbody>
     <tr th:each="task, rowStat : ${employee.tasksOrderByDueDate}">
+        <td th:id="'subject-' + ${task.taskId}" th:class="${#sets.contains(employee.completedTasks, task.taskId) ? 'complete' : ''}" th:text="${task.taskName}"></td>
         <td th:text="${task.taskName}"></td>
         <td th:text="${task.taskDueDate}"></td>
         <td th:text="${task.taskResponsibility}"></td>
+        <td>
+            <form th:action="@{'/employee/' + ${employee.recruitId} + '/remove-task/' + ${task.taskId}}" method="post">
+
+                <button type="submit" class="btn-complete">Mark as Complete</button>
+            </form>
+        </td>
+
     </tr>
+
     </tbody>
 </table>
 
@@ -47,7 +56,7 @@
                     <label class="taskLabel" for="taskName">Task Name:</label>
                     <input type="text" id="taskName" name="taskName" required>
                     <label class="taskLabel" for="taskDueDate">Task Due Date:</label>
-                    <input type="date" id="taskDueDate" name="taskDueDate">
+                    <input type="date" id="taskDueDate" name="taskDueDate" pattern="\d{4}-\d{2}-\d{2}" required>
                     <label class="taskLabel" for="taskResponsibility">Task Responsibility:</label>
                     <select name="taskResponsibility" id="taskResponsibility">
                         <option value="IT">IT</option>
