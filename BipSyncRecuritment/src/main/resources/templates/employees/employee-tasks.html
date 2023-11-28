@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Tasks</title>
+</head>
+<body>
+<h1 th:text="${employee.firstName} + ' Employee Tasks'"></h1>
+
+<table class="table table-striped">
+    <thead>
+        <th scope="col">Task Name</th>
+        <th scope="col">Task Due Date</th>
+        <th scope="col">Responsibility</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="task, rowStat : ${employee.tasks}">
+        <td th:text="${task.taskName}"></td>
+        <td th:text="${task.taskDueDate}"></td>
+        <td th:text="${task.taskResponsiblity}"></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

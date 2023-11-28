@@ -19,3 +19,8 @@ insert into recruits(first_name, last_name, date_of_birth, phone_number, passpor
 values ('Noah', 'Davis', '1998/04/03', '07957897895', '458798698', 'AW092869B', 'ndavis@bipsync.com', 'Data Analyst', '2022/06/12', 'Sarah', '07657465812');
 insert into recruits(first_name, last_name, date_of_birth, phone_number, passport_number, national_insurance_number, email, position, date_of_hire, emergency_contact_name, emergency_contact_phone)
 values ('Harper', 'Mitchell', '1997/10/18', '07865434545', '765678932', 'JW134678D', 'apatel@bipsync.com', 'Software Engineer', '2023/07/14', 'Josh', '079345789');
+
+insert into tasks(task_id, task_name, task_due_date, task_responsibility)
+values(1,'Set up employee with starter meeting with CEO','2023/12/22','Hiring Manager');
+
+insert into employee_tasks(t_recruit_id, t_task_id) values(1,1);

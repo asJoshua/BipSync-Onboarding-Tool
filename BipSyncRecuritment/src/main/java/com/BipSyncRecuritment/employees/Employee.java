@@ -3,6 +3,8 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "recruits")
@@ -23,8 +25,19 @@ public class Employee {
     @Column(name = "emergency_contact_phone")
     private String emergencyContactPhoneNumber;
 
-    // Getters and setters for the fields...
 
+
+    @ManyToMany
+    @JoinTable(
+            name = "employee_tasks",
+            joinColumns = @JoinColumn(name = "t_recruit_id"),
+            inverseJoinColumns = @JoinColumn(name = "t_task_id")
+    )
+    private Set<Task> tasks = new HashSet<>();
+
+    public Set<Task> getTasks() {
+        return tasks;
+    }
 
 
     public void setRecruitId(Long id) {
