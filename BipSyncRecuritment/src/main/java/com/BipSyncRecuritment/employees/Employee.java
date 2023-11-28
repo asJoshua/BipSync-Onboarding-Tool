@@ -3,8 +3,11 @@ import jakarta.persistence.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Comparator;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "recruits")
@@ -37,6 +40,11 @@ public class Employee {
 
     public Set<Task> getTasks() {
         return tasks;
+    }
+    public List<Task> getTasksOrderByDueDate() {
+        return tasks.stream()
+                .sorted(Comparator.comparing(Task::getTaskDueDate))
+                .collect(Collectors.toList());
     }
 
 

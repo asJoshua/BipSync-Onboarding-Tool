@@ -16,7 +16,7 @@ public class Task {
     private LocalDate taskDueDate;
 
     @Column(name = "task_responsibility")
-    private String taskResponsiblity;
+    private String taskResponsibility;
 
     @ManyToMany(mappedBy = "tasks")
     private Set<Employee> employees = new HashSet<>();
@@ -29,8 +29,10 @@ public class Task {
     public Long getTaskId() {
         return taskId;
     }
-public Task(String taskName){
+public Task(String taskName, LocalDate taskDueDate, String taskResponsibility){
         this.taskName = taskName;
+        this.taskDueDate = taskDueDate;
+        this.taskResponsibility=taskResponsibility;
 }
 
 
@@ -44,7 +46,18 @@ public Task(String taskName){
         return taskDueDate;
     }
 
-    public String getTaskResponsiblity() {
-        return taskResponsiblity;
+    public String getTaskResponsibility() {
+        return taskResponsibility;
+    }
+
+    public String setTaskName(String taskName) {
+        return this.taskName=taskName;
+    }
+    public LocalDate setTaskDueDate(LocalDate taskDueDate){
+        return this.taskDueDate=taskDueDate;
+    }
+
+    public String setTaskResponsibility(String taskResponsibility){
+        return this.taskResponsibility=taskResponsibility;
     }
 }
