@@ -28,6 +28,7 @@
         <td th:text="${employee.lastName}"></td>
         <td th:text="${employee.position}"></td>
         <td th:text="${employee.email}"></td>
+        <td><a th:href="@{/employee/{id}/details(id=${employee.recruitId})}"class="btn btn-primary">View Details</a></td>
         <td><a th:href="@{/employee/{id}(id=${employee.recruitId})}"class="btn btn-primary">View Tasks</a></td>
         <td><a th:href="@{/employee/{id}/completed-tasks(id=${employee.recruitId})}"class="btn btn-primary">View Completed Tasks</a></td>
     </tr>

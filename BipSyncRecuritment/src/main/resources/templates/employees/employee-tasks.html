@@ -21,7 +21,6 @@
     <tbody>
     <tr th:each="task, rowStat : ${employee.tasksOrderByDueDate}">
         <td th:id="'subject-' + ${task.taskId}" th:class="${#sets.contains(employee.completedTasks, task.taskId) ? 'complete' : ''}" th:text="${task.taskName}"></td>
-        <td th:text="${task.taskName}"></td>
         <td th:text="${task.taskDueDate}"></td>
         <td th:text="${task.taskResponsibility}"></td>
         <td>

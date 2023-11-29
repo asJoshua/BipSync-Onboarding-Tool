@@ -29,6 +29,13 @@ public class EmployeeController {
         modelAndView.addObject("employees", employees);
         return modelAndView;
     }
+    @GetMapping("/employee/{recruitId}/details")
+    public ModelAndView getEmployeeDetails(@PathVariable Long recruitId, Model model) {
+        Employee employees = employeeService.getEmployeeById(recruitId);
+        ModelAndView modelAndView = new ModelAndView("employees/employee-details");
+        modelAndView.addObject("employees", employees);
+        return modelAndView;
+    }
 
     @GetMapping("/employee/{recruitId}")
     public String getEmployeeTasks(@PathVariable Long recruitId, Model model) {

@@ -83,6 +83,29 @@ public class Employee {
         return email;
     }
 
+    public String getPhoneNumber(){
+        return phoneNumber;
+    }
+
+    public String getPassportNumber(){
+        return passportNumber;
+    }
+    public String getNationalInsuranceNumber(){
+        return nationalInsuranceNumber;
+    }
+
+    public String getEmergencyContactName(){
+        return emergencyContactName;
+    }
+
+    public String getEmergencyContactPhoneNumber(){
+        return emergencyContactPhoneNumber;
+    }
+
+    public LocalDate getDateOfHire(){
+        return dateOfHire;
+    }
+
     public Set<Long> getCompletedTasks() {
         return completedTasks;
     }
