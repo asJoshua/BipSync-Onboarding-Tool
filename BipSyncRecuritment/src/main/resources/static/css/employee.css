@@ -1,6 +1,10 @@
 body{
     background-color: #2A2731;
 }
+#containers{
+    background-color: #2A2731;
+
+}
 .table {
     background-color: #F4F4F4;
     margin: auto;
