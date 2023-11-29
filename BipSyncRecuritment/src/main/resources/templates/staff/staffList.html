@@ -3,22 +3,26 @@
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="/styles/style.css" />
-  <meta charset="UTF-8">
+  <meta charset="ISO-8859-1">
   <title>Staff Members</title>
 </head>
 <body>
 <div>
-  <table>
-    <thread>
-      <tr>
-      <th>Staff Name</th>
-    </thread>
+  <table border="1">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Email</th>
+      <th>Role</th>
+    </tr>
+    </thead>
     <tbody>
-    <!--/*@thymesVar id="employeeList" type=""*/-->
-    <!--/*@thymesVar id="StaffList" type=""*/-->
-    <tr th:each="Staff : ${StaffList}">
-    <!--/*@thymesVar id="Staff" type=""*/-->
-    <td th:text="${Staff}"></td>
+    <tr th:each="staff : ${StaffList}">
+      <td th:text="${staff.name}"></td>
+      <td th:text="${staff.lastName}"></td>
+      <td th:text="${staff.email}"></td>
+      <td th:text="${staff.role}"></td>
     </tr>
     </tbody>
   </table>

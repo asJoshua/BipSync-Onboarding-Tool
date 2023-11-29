@@ -10,6 +10,7 @@ public class staffInfo {
     private int id;
     private String name;
     private String lastName;
-    private String Number;
+    private String email;
+    private String role;
 
 }
