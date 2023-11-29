@@ -18,5 +18,14 @@ public class NewRecruit {
     private String dateOfHire;
     private String emergencyContactName;
     private String emergencyContactPhoneNumber;
+
+    public NewRecruit() {
+        this(0L, "", "", "", "", "", "", "", "", "", "", "");
+    }
+    public boolean isNew() {
+        return this.id == 0;
+    }
 }
+
+
 

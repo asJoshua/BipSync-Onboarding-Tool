@@ -10,5 +10,5 @@ import java.util.List;
 public interface LandingPageRepository{
     List<NewRecruit> getNewRecruits();
     NewRecruit getNewRecruit(Long id);
-    void addNewRecruit(NewRecruit newRecruit);
+    void save(NewRecruit newRecruit);
 }
