@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:sec="http://www.w3.org/1999/xhtml">
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link th:fragment="bootstrap-css"
@@ -16,7 +17,6 @@
             <img src="/images/bipsync_logo.jpg" alt="" width="35" height="35" class="d-inline-block">
             bipsync
         </a>
-
         <div class="d-flex">
             <div>
                 <ul class="navbar-nav mr-auto m-3">
@@ -32,7 +32,7 @@
                 </ul>
             </div>
             <div class="m-3">
-                <button type="submit" class="login-btn">Login</button>
+                <span sec:authorize="isAuthenticated" class="login-btn"><a th:href="@{/logout}">Logout</a></span>
             </div>
         </div>
     </div>

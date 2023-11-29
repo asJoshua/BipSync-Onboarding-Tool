@@ -1,6 +1,7 @@
 <!doctype html>
-<html lang="en">
+<html xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
+
     <meta charset="UTF-8">
     <title>Home</title>
     <link th:replace="~{fragments/header :: bootstrap-css}"/>
@@ -22,7 +23,7 @@
             <a href="#">New Recruit</a>
         </button>
         <button type="button" class="action-btn">
-            <a href="#">Current Staff</a>
+            <a th:href="@{/employee}">Current Staff</a>
         </button>
     </section>
 
