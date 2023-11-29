@@ -20,15 +20,6 @@ create table if not exists recruits
 (
     recruitId bigint AUTO_INCREMENT PRIMARY KEY,
     firstName varchar(50) not null,
-    lastName varchar(50) not null,
-    dateOfBirth varchar(50) not null,
-    phoneNumber int not null,
-    passportNumber int not null,
-    nationalInsuranceNumber varchar(50) not null,
-    email varchar(50) not null,
-    position varchar(50) not null,
-    dateOfHire varchar(50) not null,
-    emergencyContactName varchar(50) not null,
-    emergencyContactPhone int not null
+    lastName varchar(50) not null
 )engine = innoDB;
 
