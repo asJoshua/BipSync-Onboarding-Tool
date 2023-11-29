@@ -12,7 +12,11 @@ public class StaffController {
     @GetMapping("/Staff")
     public ModelAndView getStaffList() {
         ModelAndView modelAndView = new ModelAndView("staff/staffList");
-        modelAndView.addObject("StaffList",Staff);
+        StaffService staffService =StaffService.getInstance();
+        List<staffInfo> staffInfo = staffService.getStaffList();
+//        List<String> staffName =
+//        staffName = staffInfo.stream().map(staffInfo::getName).toList();
+        modelAndView.addObject("StaffList",staffInfo);
         return modelAndView;
     }
 }
