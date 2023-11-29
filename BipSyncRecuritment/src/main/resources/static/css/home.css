@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@200;400;600&display=swap');
+
+:root{
+    --primary-color: #2A2731;
+    --secondary-color: #5D5D5D;
+    --blue-color: #7286A0;
+    --white-color: #FFF;
+    --accent-color: #F4F4F4;
+    --bg-color: linear-gradient(#2A2731,#5D5D5D);
+    --button-color: #F6653C;
+}
+
+body{
+    font-family: 'IBM Plex Sans Arabic', sans-serif;
+}
+
+.login-btn{
+    background-color: var(--button-color);
+    border: 0;
+    border-radius: 5px;
+    margin-top: 5px;
+    padding: 5px 10px 5px 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.action-btn{
+    background-color: var(--blue-color);
+    padding: 30px;
+    font-size: medium;
+    font-weight: bold;
+    color: var(--white-color);
+    border: 0;
+    border-radius: 10px;
+    margin: 50px;
+}
+
+.action-btn:hover {background-color: #43566e}
+
+.action-btn:active {
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+a{
+    text-decoration: none;
+    color: white;
+}
+
+.btn-container{
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#bg-wrapper{
+    height: 350px;
+    background-image: var(--bg-color);
+}
+
+#txt-wrapper{
+    height: 100%;
+}
+
+#company-name{
+    color: var(--white-color);
+    font-weight: 700;
+}

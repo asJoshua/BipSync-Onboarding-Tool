@@ -1,0 +1,37 @@
+<!doctype html>
+<html xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link th:replace="~{fragments/header :: bootstrap-css}"/>
+    <link rel="stylesheet" th:href="@{/css/home.css}" />
+
+<body>
+    <div id="header">
+        <div th:replace="~{fragments/header :: header}"/>
+    </div>
+
+    <section id="bg-wrapper">
+        <figure id="txt-wrapper" class="d-flex flex-column justify-content-center">
+            <h1 id="company-name" class="text-center">BipSync <br> Onboarding</h1>
+        </figure>
+    </section>
+
+    <section id="buttons" class="container btn-container">
+        <button type="button" class="action-btn">
+            <a href="#">New Recruit</a>
+        </button>
+        <button type="button" class="action-btn">
+            <a th:href="@{/employee}">Current <br> Employees</a>
+        </button>
+        <button type="button" class="action-btn">
+            <a href="#">Staff Team</a>
+        </button>
+    </section>
+
+    <div id="footer">
+        <div th:replace="~{fragments/footer :: footer}"/>
+    </div>
+</body>
+</html>
