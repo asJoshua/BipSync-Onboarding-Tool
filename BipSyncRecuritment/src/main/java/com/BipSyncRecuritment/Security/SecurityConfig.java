@@ -33,7 +33,7 @@ public class SecurityConfig {
 
         http.csrf().disable().authorizeHttpRequests()
 
-                .requestMatchers( "/images/**", "/css/**", "/home", "/home/newRecruit","/styles/**","/viewEmployees","/employee/{recruitId}","/employee/{recruitId}/add-task","/employee/{recruitId}/remove-task/{taskId}","/employee/{recruitId}/completed-tasks").permitAll()
+                .requestMatchers(  "/newRecruitForm","/images/**", "/css/**", "/home", "/home/newRecruit","/styles/**","/viewEmployees","/employee/{recruitId}","/employee/{recruitId}/add-task","/employee/{recruitId}/remove-task/{taskId}","/employee/{recruitId}/completed-tasks").permitAll()
                 .requestMatchers("/employee","/employee/{recruitId}/details").hasRole("ADMIN")
                 .and()
                 .formLogin()
