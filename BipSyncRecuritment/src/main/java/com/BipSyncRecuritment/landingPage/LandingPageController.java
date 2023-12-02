@@ -1,5 +1,6 @@
 package com.BipSyncRecuritment.landingPage;
 
+import com.structurizr.annotation.UsedByPerson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -10,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 import java.security.Principal;
 @RestController
+@UsedByPerson(name = "Admin", description = "Navigate to other pages", technology = "http(s)")
 public class LandingPageController {
     @Autowired
     private UserDetailsService userDetailsService;

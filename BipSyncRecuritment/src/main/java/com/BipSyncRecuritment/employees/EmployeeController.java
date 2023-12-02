@@ -1,5 +1,6 @@
 package com.BipSyncRecuritment.employees;
 
+import com.structurizr.annotation.UsedByPerson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
+@UsedByPerson(name = "Admin", description = "Manage Employees and Tasks", technology = "http(s)")
 public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
