@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 
 public class GenerateModel {
 
-    private final static int WORKSPACE_ID = 8731;
+    private final static int WORKSPACE_ID = 87361;
     private final static String API_KEY = "045eb293-5bac-4c17-8213-8ef1e101ed8a";
     private final static String API_SECRET = "23398d8c-1ca0-464b-8a0f-04b1eadd47f7";
 
@@ -23,7 +23,7 @@ public class GenerateModel {
 
 
         SoftwareSystem bipsyncClientProject = model.addSoftwareSystem("Bipsync Client Project", "Onboarding Checklist for Bipsync");
-        Person admin = model.addPerson("Admin for Website", "  A person who has access to everything on the website.");
+        Person admin = model.addPerson("Admin for Website", "  A person who has access to the website and cna make changes.");
         Person staff = model.addPerson("Staff", "  A person who is in charge of completing specific tasks needed for the onboarding process");
 
         admin.uses(bipsyncClientProject, "Uses");
@@ -67,18 +67,20 @@ public class GenerateModel {
                 .filter(c -> c.getTechnology().equals(SpringComponentFinderStrategy.SPRING_REPOSITORY))
                 .forEach(c -> c.uses(relationalDatabase, "Reads from and writes to", "JPA"));
 
-
+        webApplication.getComponents().stream()
+                .filter(c -> c.getTechnology().equals(SpringComponentFinderStrategy.SPRING_REPOSITORY))
+                .forEach(c -> c.uses(relationalDatabase, "Reads from and writes to", "JDBC"));
 
         for (Component c : webApplication.getComponents()) {
             System.out.println(c.getRelationships());
         }
         //Debugging code - check things are being set correctly.
 
-                Component cservice = webApplication.getComponentOfType("com.BipSyncRecuritment.services.UserService");
+        Component cservice = webApplication.getComponentOfType("com.BipSyncRecuritment.login.UserService");
 
         System.out.println(cservice);
 
-        Component cRepo = webApplication.getComponentOfType("com.BipSyncRecuritment.repositories.UserRepositoryJPA");
+        Component cRepo = webApplication.getComponentOfType("com.BipSyncRecuritment.login.UserRepository");
         System.out.println(cRepo);
 
         cservice.uses(cRepo, "uses");
