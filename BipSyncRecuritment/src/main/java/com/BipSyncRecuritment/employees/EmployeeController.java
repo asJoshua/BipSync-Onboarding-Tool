@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDate;
@@ -43,6 +40,38 @@ public class EmployeeController {
         model.addAttribute("employee", employee);
         return "employees/employee-tasks";
     }
+
+    @GetMapping("/employee/{recruitId}/edit")
+    public String getEmployeeEditForm(@PathVariable Long recruitId, Model model) {
+        Employee employee = employeeService.getEmployeeById(recruitId);
+        model.addAttribute("employee", employee);
+        return "employees/employee-details-edit";
+
+    }
+
+    @PostMapping("/employee/{recruitId}/edit")
+    public String editEmployeeDetails(@PathVariable Long recruitId, @ModelAttribute Employee updatedEmployee) {
+        Employee currentEmployee = employeeService.getEmployeeById(recruitId);
+
+
+        currentEmployee.setFirstName(updatedEmployee.getFirstName());
+        currentEmployee.setLastName(updatedEmployee.getLastName());
+        currentEmployee.setDateOfBirth(updatedEmployee.getDateOfBirth());
+        currentEmployee.setPhoneNumber(updatedEmployee.getPhoneNumber());
+        currentEmployee.setPosition(updatedEmployee.getPosition());
+        currentEmployee.setEmail(updatedEmployee.getEmail());
+        currentEmployee.setPassportNumber(updatedEmployee.getPassportNumber());
+        currentEmployee.setNationalInsuranceNumber(updatedEmployee.getNationalInsuranceNumber());
+        currentEmployee.setDateOfHire(updatedEmployee.getDateOfHire());
+        currentEmployee.setEmergencyContactName(updatedEmployee.getEmergencyContactName());
+        currentEmployee.setEmergencyContactPhoneNumber(updatedEmployee.getEmergencyContactPhoneNumber());
+
+
+        employeeService.saveEmployee(currentEmployee);
+
+        return "redirect:/employee/{recruitId}";
+    }
+
 
     @PostMapping("/employee/{recruitId}/add-task")
     public String addTaskForEmployee(

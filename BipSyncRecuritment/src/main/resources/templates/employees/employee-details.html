@@ -9,7 +9,7 @@
 <body>
 
 <div  th:each="employee : ${employees}"class="card  mx-auto" style="width: 20rem;">
-  <button class="btn btn-primary">Edit Details</button>
+  <a th:href="@{/employee/{id}/edit(id=${employee.recruitId})}"class="btn btn-primary">Edit Details</a>
   <img class="card-img-top" src="/images/profilepic.jpg" alt="Card image cap">
   <div class="card-body">
     <h5 th:text="${employee.firstName}+'s' + ' ' + 'Details'"  class="card-title"></h5>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+
+<form th:action="@{'/employee/' + ${employee.recruitId} + '/edit'}" method="post"  id="editForm">
+<label for="firstName">Edit Employee First Name:</label>
+<input type="text" id="firstName" name="firstName" th:value="${employee.firstName}" >
+    <label for="lastName">Edit Employee Last Name:</label>
+    <input type="text" id="lastName" name="lastName" th:value="${employee.lastName}" >
+    <label for="dateOfBirth">Edit Employee Date Of Birth:</label>
+    <input type="date" id="dateOfBirth" name="dateOfBirth" th:value="${employee.dateOfBirth}" >
+    <label for="position">Edit Employee Position:</label>
+    <input type="text" id="position" name="position" th:value="${employee.position}" >
+    <label for="email">Edit Employee Email:</label>
+    <input type="text" id="email" name="email" th:value="${employee.email}" >
+    <label for="phoneNumber">Edit Employee Phone Number:</label>
+    <input type="text" id="phoneNumber" name="phoneNumber" th:value="${employee.phoneNumber}" >
+    <label for="passportNumber">Edit Employee Passport Number:</label>
+    <input type="text" id="passportNumber" name="passportNumber" th:value="${employee.passportNumber}" >
+    <label for="nationalInsuranceNumber">Edit Employee NI Number:</label>
+    <input type="text" id="nationalInsuranceNumber" name="nationalInsuranceNumber" th:value="${employee.nationalInsuranceNumber}" >
+    <label for="dateOfHire">Edit Employee Date of Hire:</label>
+    <input type="date" id="dateOfHire" name="dateOfHire" th:value="${employee.dateOfHire}" >
+    <label for="emergencyContactName">Edit Employee Emergency Contact Name:</label>
+    <input type="text" id="emergencyContactName" name="emergencyContactName" th:value="${employee.emergencyContactName}" >
+    <label for="emergencyContactPhoneNumber">Edit Employee Emergency Contact Number:</label>
+    <input type="text" id="emergencyContactPhoneNumber" name="emergencyContactPhoneNumber" th:value="${employee.emergencyContactPhoneNumber}" >
+
+    <button type="submit" class="btn btn-primary">Update Name</button>
+</form>
+</body>
+
+</html>
