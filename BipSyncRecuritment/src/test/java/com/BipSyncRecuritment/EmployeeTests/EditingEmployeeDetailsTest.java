@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 
+import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -25,16 +26,23 @@ public class EditingEmployeeDetailsTest {
     private EmployeeService employeeService;
 
     @Test
-    void testEditEmployeeDetails() {
-        // Arrange
+    void EditEmployeeDetailsTest() {
         Long recruitId = 1L;
         Employee existingEmployee = new Employee();
         existingEmployee.setRecruitId(recruitId);
 
         Employee updatedEmployee = new Employee();
-        updatedEmployee.setFirstName("UpdatedFirstName");
-        updatedEmployee.setLastName("UpdatedLastName");
-
+        updatedEmployee.setFirstName("Test");
+        updatedEmployee.setLastName("Test");
+        updatedEmployee.setDateOfBirth(LocalDate.of(2002, 2, 2));
+        updatedEmployee.setEmail("Test@test.com");
+        updatedEmployee.setPassportNumber("123456789");
+        updatedEmployee.setPosition("Test");
+        updatedEmployee.setDateOfHire(LocalDate.of(2023, 12, 6));
+        updatedEmployee.setNationalInsuranceNumber("TT123456T");
+        updatedEmployee.setPhoneNumber("1234567811");
+        updatedEmployee.setEmergencyContactName("Test");
+        updatedEmployee.setEmergencyContactPhoneNumber("12345678900");
 
         when(employeeService.getEmployeeById(recruitId)).thenReturn(existingEmployee);
 

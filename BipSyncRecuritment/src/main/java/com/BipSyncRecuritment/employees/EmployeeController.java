@@ -26,6 +26,7 @@ public class EmployeeController {
         modelAndView.addObject("employees", employees);
         return modelAndView;
     }
+
     @GetMapping("/employee/{recruitId}/details")
     public ModelAndView getEmployeeDetails(@PathVariable Long recruitId, Model model) {
         Employee employees = employeeService.getEmployeeById(recruitId);
@@ -94,12 +95,11 @@ public class EmployeeController {
 
             employee.getTasks().add(newTask);
             employeeService.saveEmployee(employee);
-
-            return "redirect:/employee/{recruitId}";
-        } else {
-            return "redirect:/employee/recruitId}?error=empty_task";
         }
-    }
+            return "redirect:/employee/{recruitId}";
+
+        }
+
 
     @PostMapping("/employee/{recruitId}/remove-task/{taskId}")
     public String removeTask(
@@ -119,13 +119,12 @@ public class EmployeeController {
             employeeService.saveEmployee(employee);
 
 
-            return "redirect:/employee/{recruitId}";
-        } else {
 
-
-            return "redirect:/employee/{recruitId}?error=task";
         }
+        return "redirect:/employee/{recruitId}";
     }
+
+
 
     @GetMapping("/employee/{recruitId}/completed-tasks")
     public String viewCompletedTasks(@PathVariable Long recruitId, Model model) {

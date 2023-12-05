@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long recruitId;  // Change 'id' to 'recruitId'
+    private Long recruitId;
 
     private String firstName;
     private String lastName;
