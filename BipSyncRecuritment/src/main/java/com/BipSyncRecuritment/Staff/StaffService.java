@@ -11,9 +11,15 @@ public class StaffService {
         staffList= new ArrayList<>();
         staffList.addAll(
         staffList = List.of(
-                new staffInfo(0, "John", "Smith", "JohnSmith@gmail.com", "IT admin"),
-                new staffInfo(1, "Dillon", "Jil", "DillonJ@gmail.com","Hr"),
-                new staffInfo(2, "Arnold", "Ben", "ArBen@gmail.com","Tech support")
+                new staffInfo(0, "John", "Smith", "JohnSmith@bipsync.com", "IT admin"),
+                new staffInfo(1, "Dillon", "Jil", "DillonJ@bipsync.com","Hr"),
+                new staffInfo(2, "Arnold", "Ben", "ArBen@bipsync.com","Tech support"),
+                new staffInfo(3, "Timmy", "mac", "mac@bipsync.com","IT"),
+                new staffInfo(4, "Billy", "Smith", "BillSmith@bipsync.com","Data analyst"),
+                new staffInfo(5, "Heather", "Thomas", "HeatherHR@bipsync.com","Hr manager")
+
+
+
         )
         );
     }

@@ -7,10 +7,13 @@
   <title>Staff Members</title>
 </head>
 <body>
-<div>
-  <table border="1">
+<div class="container my-4">
+  <div class="row">
+    <div class="col-md-8 offset-md-2">
+  <table border="1" class="table table-bordered">
     <thead>
     <tr>
+      <th>Id</th>
       <th>Name</th>
       <th>Surname</th>
       <th>Email</th>
@@ -19,6 +22,7 @@
     </thead>
     <tbody>
     <tr th:each="staff : ${StaffList}">
+      <td th:text="${staff.id}"></td>
       <td th:text="${staff.name}"></td>
       <td th:text="${staff.lastName}"></td>
       <td th:text="${staff.email}"></td>
@@ -26,6 +30,8 @@
     </tr>
     </tbody>
   </table>
+</div>
+  </div>
 </div>
 </body>
 </html>
