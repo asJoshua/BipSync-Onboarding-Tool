@@ -25,6 +25,10 @@
         <td th:text="${task.taskDueDate}"></td>
         <td th:text="${task.taskResponsibility}"></td>
         <td>
+            <form th:action="@{'/employee/' + ${employee.recruitId} + '/email/' + ${task.taskId}}" method="post">
+                <button type="submit">Send Email Reminder</button>
+            </form></td>
+        <td>
             <form th:action="@{'/employee/' + ${employee.recruitId} + '/remove-task/' + ${task.taskId}}" method="post">
 
                 <button type="submit" class="btn-complete">Mark as Complete</button>

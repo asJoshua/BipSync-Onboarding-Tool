@@ -30,6 +30,7 @@ dependencies {
 
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
 
 	//from https://mariadb.com/kb/en/java-connector-using-gradle/
 	implementation 'org.mariadb.jdbc:mariadb-java-client:2.1.2'
