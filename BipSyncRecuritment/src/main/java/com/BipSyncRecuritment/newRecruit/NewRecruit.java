@@ -4,8 +4,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
-@Entity
+@Data
+@AllArgsConstructor
 public class NewRecruit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,5 +38,9 @@ public class NewRecruit {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public boolean isNew() {
+        return this.id == 0;
     }
 }

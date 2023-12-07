@@ -1,6 +1,6 @@
 drop table if exists user_roles;
 drop table if exists users;
-drop table if exists recruits;
+
 create table if not exists users
 (
     id bigint AUTO_INCREMENT PRIMARY KEY,
@@ -18,7 +18,7 @@ create table if not exists user_roles(
 
 create table if not exists recruits
 (
-    recruitId bigint AUTO_INCREMENT PRIMARY KEY,
+    id bigint AUTO_INCREMENT PRIMARY KEY,
     firstName varchar(50) not null,
     lastName varchar(50) not null
 )engine = innoDB;
