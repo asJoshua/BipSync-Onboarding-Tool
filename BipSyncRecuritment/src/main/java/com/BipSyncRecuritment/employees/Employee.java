@@ -32,7 +32,7 @@ public class Employee {
 
 
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "employee_tasks",
             joinColumns = @JoinColumn(name = "t_recruit_id"),

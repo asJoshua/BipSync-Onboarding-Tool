@@ -1,5 +1,6 @@
 package com.BipSyncRecuritment.employees;
 
+import com.BipSyncRecuritment.email.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,9 @@ public class EmployeeController {
     private EmployeeService employeeService;
     @Autowired
     private TaskService taskService;
+
+    @Autowired
+    private EmailService emailService;
 
     //Mapping to display all current employees on the page
     @GetMapping("/employee")
@@ -106,4 +110,29 @@ public class EmployeeController {
 
 
     }
+
+    @PostMapping("/employee/{recruitId}/email/{taskId}")
+    public String sendEmailReminder(
+            @PathVariable Long recruitId,
+            @PathVariable Long taskId
+    ) {
+
+        Task task = taskService.getTaskById(taskId);
+        Employee employee = employeeService.getEmployeeById(recruitId);
+
+        if (task != null && employee != null) {
+
+            String to = "testingforproject2023@gmail.com";
+            String emailSubject = "Task Reminder: " + task.getTaskName();
+            String emailBody = "Dear " + task.getTaskResponsibility() + "\n\nYou have a task to complete : " + task.getTaskName() + " required for employee: "+employee.getFirstName()+ " " + employee.getLastName()+  "\n\n Which is due for: " + task.getTaskDueDate();
+
+            emailService.sendEmail(to, emailSubject, emailBody);
+
+
+
+        }
+
+            return "redirect:/employee";
+        }
+
 }
