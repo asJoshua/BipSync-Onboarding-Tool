@@ -23,11 +23,11 @@ values ('Harper', 'Mitchell', '1997/10/18', '07865434545', '765678932', 'JW13467
 insert into tasks(task_id, task_name, task_due_date, task_responsibility,task_department_email)
 values(1,'Add to Company group lists and calenders','2023/12/20','HR','testingforproject2023@gmail.com');
 insert into tasks(task_id, task_name, task_due_date, task_responsibility,task_department_email)
-values(2,'Create email accounts','2023/12/13','IT','testingforproject2023@gmail.com');
+values(2,'Create email accounts','2023/12/01','IT','testingforproject2023@gmail.com');
 insert into tasks(task_id, task_name, task_due_date, task_responsibility,task_department_email)
 values(3,'Prepare Contracts','2023/12/15','HR','testingforproject2023@gmail.com');
 insert into tasks(task_id, task_name, task_due_date, task_responsibility,task_department_email)
-values(4,'Sign contracts,tax forms','2023/12/18','HR','testingforproject2023@gmail.com');
+values(4,'Sign contracts,tax forms','2023/12/06','HR','testingforproject2023@gmail.com');
 insert into tasks(task_id, task_name, task_due_date, task_responsibility,task_department_email)
 values(5,'Check confirmation of work permits','2023/12/14','HR','testingforproject2023@gmail.com');
 insert into tasks(task_id, task_name, task_due_date, task_responsibility,task_department_email)
@@ -35,7 +35,7 @@ values(6,'Ensure correct IT equipment is updated and ready to use','2023/12/13',
 insert into tasks(task_id, task_name, task_due_date, task_responsibility,task_department_email)
 values(7,'Set up Desk','2023/12/14','Facilities','testingforproject2023@gmail.com');
 insert into tasks(task_id, task_name, task_due_date, task_responsibility,task_department_email)
-values(8,'Ensure all access cards are prepared','2023/12/27','IT','testingforproject2023@gmail.com');
+values(8,'Ensure all access cards are prepared','2023/11/30','IT','testingforproject2023@gmail.com');
 
 
 insert into employee_tasks(t_recruit_id, t_task_id) values(1,1);
