@@ -38,7 +38,8 @@ create table if not exists  tasks(
     task_id bigint auto_increment primary key ,
     task_name VARCHAR(200),
     task_due_date date not null,
-    task_responsibility varchar(50)
+    task_responsibility varchar(50),
+    task_department_email varchar(50)
 
 )ENGINE=InnoDB;
 

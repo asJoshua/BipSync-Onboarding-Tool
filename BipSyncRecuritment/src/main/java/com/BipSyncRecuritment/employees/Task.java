@@ -21,7 +21,8 @@ public class Task {
     @Column(name = "task_responsibility")
     private String taskResponsibility;
 
-    @ManyToMany(mappedBy = "tasks")
+    private String taskDepartmentEmail;
+    @ManyToMany(fetch = FetchType.EAGER, mappedBy = "tasks")
     private Set<Employee> employees = new HashSet<>();
 
     public Task(){};
@@ -63,5 +64,13 @@ public Task(String taskName, LocalDate taskDueDate, String taskResponsibility){
 
     public String setTaskResponsibility(String taskResponsibility){
         return this.taskResponsibility=taskResponsibility;
+    }
+
+    public String getTaskDepartmentEmail(){
+        return taskDepartmentEmail;
+    }
+
+    public void setTaskDepartmentEmail(String taskDepartmentEmail) {
+        this.taskDepartmentEmail = taskDepartmentEmail;
     }
 }
