@@ -1,6 +1,8 @@
 package com.BipSyncRecuritment.employees;
 
 import com.BipSyncRecuritment.email.EmailService;
+import com.BipSyncRecuritment.newRecruit.NewRecruit;
+import com.BipSyncRecuritment.newRecruit.NewRecruitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -25,12 +27,18 @@ public class EmployeeController {
     @Autowired
     private EmailService emailService;
 
+    @Autowired
+    private NewRecruitService newRecruitService;
+
     //Mapping to display all current employees on the page
     @GetMapping("/employee")
     public ModelAndView getAllEmployees() {
         List<Employee> employees = employeeService.getAllEmployees();
         ModelAndView modelAndView = new ModelAndView("employees/employee");
         modelAndView.addObject("employees", employees);
+
+        List<NewRecruit> newRecruits= newRecruitService.getNewRecruits();
+        modelAndView.addObject("newRecruits", newRecruits);
         return modelAndView;
     }
     @GetMapping("/employee/{recruitId}/details")

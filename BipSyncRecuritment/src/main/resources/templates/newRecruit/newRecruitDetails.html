@@ -5,25 +5,25 @@
   <title>New Recruit Details</title>
 </head>
 <body>
-  <table>
-    <thead>
-    <tr>
-      <th>New Recruit</th>
-    </thead>
-    <tbody>
-    <tr>
-      <td>Id</td>
-      <td th:text="${newRecruit.recruitId}"></td>
-    </tr>
-    <tr>
-      <td>First Name</td>
-      <td th:text="${newRecruit.firstName}"></td>
-    </tr>
-    <tr>
-      <td>Last Name</td>
-      <td th:text="${newRecruit.lastName)}"></td>
-    </tr>
-    </tbody>
-  </table>
+  <div id="header">
+    <div th:replace="~{fragments/header :: header}"/>
+  </div>
+
+  <div  th:each="newRecruit : ${newRecruit}"class="card  mx-auto" style="width: 20rem;">
+    <div class="card-body">
+      <h5 th:text="${newRecruit.firstName}+'s' + ' ' + 'Details'"  class="card-title"></h5>
+      <ul class="list-group list-group-flush">
+        <li th:text="${'First Name: ' + newRecruit.firstName}"class="list-group-item"></li>
+        <li th:text="${'Last Name: ' + newRecruit.lastName}" class="list-group-item"></li>
+        <li th:text="${'Date of Birth: ' + newRecruit.dateOfBirth}" class="list-group-item"></li>
+        <li th:text="${'Position:' + newRecruit.position}" class="list-group-item"></li>
+        <li th:text="${'Email:' +   newRecruit.email}" class="list-group-item"></li>
+        <li th:text="${'Phone Number: ' + newRecruit.phoneNumber}" class="list-group-item"></li>
+        <li th:text="${'NI Number: ' +  newRecruit.nationalInsuranceNumber}" class="list-group-item"></li>
+        <li th:text="${'Date of Hire: ' + newRecruit.dateOfHire}" class="list-group-item"></li>
+        <li th:text="${'Emergency Contact: ' + newRecruit.emergencyContactName}" class="list-group-item"></li>
+        <li th:text="${'Emergency Contact Number: ' + newRecruit.emergencyContactPhoneNumber}" class="list-group-item"></li>
+      </ul>
+    </div>
 </body>
 </html>
