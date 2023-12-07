@@ -2,6 +2,7 @@ package com.BipSyncRecuritment.Security;
 
 import com.BipSyncRecuritment.login.UserLoginDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -37,7 +38,7 @@ public class SecurityConfig {
                 .formLogin()
                 .loginPage("/login")
                 .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/dash", true).permitAll()
+                .defaultSuccessUrl("/home", true).permitAll()
                 .and()
                 .logout()
                 .invalidateHttpSession(true)

@@ -31,11 +31,4 @@ public class UserController {
         return modelAndView;
     }
 
-    @GetMapping("/dash")
-    public ModelAndView dash(Model model, Principal principal) {
-        ModelAndView modelAndView = new ModelAndView("login/dash");
-        UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
-        model.addAttribute("userdetail" , userDetails);
-        return modelAndView;
-    }
 }

@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/employee.css" />
+    <title>Current Employees</title>
+</head>
+<body>
+
+<h1 class ="table-title">Current Employees</h1>
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Position</th>
+        <th scope="col">Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="employee : ${employees}">
+        <td th:text="${employee.firstName}"></td>
+        <td th:text="${employee.lastName}"></td>
+        <td th:text="${employee.position}"></td>
+        <td th:text="${employee.email}"></td>
+        <td><a th:href="@{/employee/{id}/details(id=${employee.recruitId})}"class="btn btn-primary">View Details</a></td>
+        <td><a th:href="@{/employee/{id}(id=${employee.recruitId})}"class="btn btn-primary">View Tasks</a></td>
+        <td><a th:href="@{/employee/{id}/completed-tasks(id=${employee.recruitId})}"class="btn btn-primary">View Completed Tasks</a></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

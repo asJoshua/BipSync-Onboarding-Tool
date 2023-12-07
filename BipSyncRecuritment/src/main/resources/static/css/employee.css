@@ -1,0 +1,59 @@
+body{
+    background-color: #2A2731;
+}
+.table {
+    background-color: #F4F4F4;
+    margin: auto;
+    width: 70% !important;
+
+}
+h1{
+    text-align: center;
+    color: #F4F4F4;
+}
+.btn-primary{
+    background-color: #F6653C;
+}
+.btn-primary:hover{
+    background-color: #F6653C;
+}
+.table-striped{
+    background-color: #F4F4F4;
+    margin: auto;
+    width: 70% !important;
+}
+#addNewTaskButton{
+    background-color: #F6653C;
+    border-radius: 6px;
+    font-size: 16px;
+
+
+}
+
+
+form {
+    margin: 0 auto;
+    width: 50%;
+
+
+}
+
+.btn-submit{
+    margin-top: 12px;
+    text-align: center;
+}
+
+.taskLabel{
+    text-align: center;
+    font-weight: bold;
+}
+.modal-body{
+    justify-content: center;
+    text-align: center;
+
+}
+.btn-complete{
+    background-color: #00A36C;
+    border-radius: 8px;
+}
+
