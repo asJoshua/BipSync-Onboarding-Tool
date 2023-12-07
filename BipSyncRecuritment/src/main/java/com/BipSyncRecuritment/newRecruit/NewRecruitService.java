@@ -6,7 +6,7 @@ public interface NewRecruitService {
 
     List<NewRecruit> getNewRecruits();
 
-    NewRecruit getNewRecruit(Long id);
+    NewRecruit getNewRecruit(Long recruitId);
 
     void save(NewRecruit newRecruit);
 }

@@ -20,14 +20,6 @@ create table if not exists user_roles(
     FOREIGN KEY (role_id) REFERENCES users(id)
 )engine = InnoDB;
 
-<<<<<<< HEAD
-create table if not exists recruits
-(
-    id bigint AUTO_INCREMENT PRIMARY KEY,
-    firstName varchar(50) not null,
-    lastName varchar(50) not null
-)engine = innoDB;
-
 CREATE TABLE IF NOT EXISTS recruits (
     recruit_id BIGINT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(50) NOT NULL,

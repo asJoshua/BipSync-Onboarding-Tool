@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en">
 <head>
-<<<<<<< HEAD
     <meta charset="UTF-8">
     <title>New Recruit Form</title>
     <link th:replace="~{fragments/header :: bootstrap-css}"/>
@@ -16,7 +15,7 @@
 <section>
     <form th:method="post" th:object="${newRecruit}">
         <div class="container form-ctn">
-            <input th:field="*{id}" th:value="0" type="hidden"/>
+            <input th:field="*{recruitId}" th:value="0" type="hidden"/>
 
             <div class="d-flex p-4">
                 <label for="firstName" th:for="*{firstName}">First Name:</label>
@@ -28,41 +27,50 @@
                 <br>
             </div>
 
-<!--            <div class="d-flex p-4">-->
-<!--                <label for="dateOfBirth">Date of Birth:</label>-->
-<!--                <input type="date" id="dateOfBirth" name="dateOfBirth" required>-->
-<!--                <br>-->
+            <div class="d-flex p-4">
+                <label for="dateOfBirth" th:for="*{dateOfBirth}">Date of Birth:</label>
+                <input type="date" id="dateOfBirth" th:field="*{dateOfBirth}" name="dateOfBirth" required>
+                <br>
 
-<!--                <label for="phoneNumber">Phone Number:</label>-->
-<!--                <input type="phoneNumber" id="phoneNumber" name="phoneNumber" required>-->
-<!--                <br>-->
-<!--            </div>-->
+                <label for="phoneNumber" th:for="*{phoneNumber}">Phone Number:</label>
+                <input type="phoneNumber" id="phoneNumber" th:field="*{phoneNumber}" name="phoneNumber" required>
+                <br>
+            </div>
 
-<!--            <div class="d-flex p-4">-->
-<!--                <label for="passportNumber">Passport Number:</label>-->
-<!--                <input type="text" id="passportNumber" name="passportNumber" required>-->
-<!--                <br>-->
+            <div class="d-flex p-4">
+                <label for="passportNumber" th:for="*{passportNumber}">Passport Number:</label>
+                <input type="text" id="passportNumber" th:field="*{passportNumber}" name="passportNumber" required>
+                <br>
 
-<!--                <label for="nationalInsurance">National Insurance:</label>-->
-<!--                <input type="nationalInsurance" id="nationalInsurance" name="nationalInsurance" required>-->
-<!--                <br>-->
-<!--            </div>-->
+                <label for="nationalInsurance" th:for="*{nationalInsuranceNumber}">National Insurance:</label>
+                <input type="text" id="nationalInsurance" th:field="*{nationalInsuranceNumber}" name="nationalInsurance" required>
+                <br>
+            </div>
 
-<!--            <div class="d-flex p-4">-->
-<!--                <label for="email">Email:</label>-->
-<!--                <input type="email" id="email" name="email" required>-->
-<!--                <br>-->
-<!--            </div>-->
+            <div class="d-flex p-4">
+                <label for="email" th:for="*{email}">Email:</label>
+                <input type="email" id="email" th:field="*{email}" name="email" required>
+                <br>
+            </div>
 
-<!--            <dic class="d-flex p-4">-->
-<!--                <label for="emergencyContactName">Emergency Contact Name:</label>-->
-<!--                <input type="text" id="emergencyContactName" name="emergencyContactName" required>-->
-<!--                <br>-->
+            <div class="d-flex p-4">
+                <label for="position" th:for="*{position}">Position:</label>
+                <input type="position" id="position" th:field="*{position}" name="position" required>
+                <br>
 
-<!--                <label for="emergencyContactPhone">Emergency Contact Phone Number:</label>-->
-<!--                <input type="emergencyContactPhone" id="emergencyContactPhone" name="emergencyContactPhone" required>-->
-<!--                <br>-->
-<!--            </dic>-->
+                <label for="dateOfHire" th:for="*{dateOfHire}">Date of Hire:</label>
+                <input type="date" id="dateOfHire" th:field="*{dateOfHire}" name="dateOfBirth" required>
+            </div>
+
+            <dic class="d-flex p-4">
+                <label for="emergencyContactName" th:for="*{emergencyContactName}">Emergency Contact Name:</label>
+                <input type="text" id="emergencyContactName" th:field="*{emergencyContactName}" name="emergencyContactName" required>
+                <br>
+
+                <label for="emergencyContactPhone" th:for="*{emergencyContactPhoneNumber}">Emergency Contact Phone Number:</label>
+                <input type="text" id="emergencyContactPhone" th:field="*{emergencyContactPhoneNumber}" name="emergencyContactPhone" required>
+                <br>
+            </dic>
 
             <button type="submit" class="login-btn">Submit</button>
         </div>

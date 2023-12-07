@@ -22,10 +22,10 @@ public class NewRecruitFormController {
         return modelAndView;
     }
 
-    @GetMapping("/newRecruit/{id}")
-    public ModelAndView getNewRecruit(@PathVariable Long id) {
+    @GetMapping("/newRecruit/{recruitId}")
+    public ModelAndView getNewRecruit(@PathVariable Long recruitId) {
         ModelAndView modelAndView = new ModelAndView("newRecruit/newRecruitDetails");
-        NewRecruit newRecruit = newRecruitService.getNewRecruit(id);
+        NewRecruit newRecruit = newRecruitService.getNewRecruit(recruitId);
         modelAndView.addObject("newRecruit", newRecruit);
         return modelAndView;
     }
@@ -39,8 +39,8 @@ public class NewRecruitFormController {
     }
 
     @PostMapping("/newRecruit/add")
-    public ModelAndView addNewRecruit(@PathVariable(value = "id", required = false) Long id, @Valid @ModelAttribute("menuItem") NewRecruitForm newRecruit){
-        NewRecruit newNewRecruit = new NewRecruit(newRecruit.getId(), newRecruit.getFirstName(), newRecruit.getLastName());
+    public ModelAndView addNewRecruit(@PathVariable(value = "recruitId", required = false) Long recruitId, @Valid @ModelAttribute("newRecruit") NewRecruitForm newRecruit){
+        NewRecruit newNewRecruit = new NewRecruit(newRecruit.getRecruitId(), newRecruit.getFirstName(), newRecruit.getLastName(), newRecruit.getDateOfBirth(), newRecruit.getPhoneNumber(), newRecruit.getPassportNumber(), newRecruit.getNationalInsuranceNumber(), newRecruit.getEmail(), newRecruit.getPosition(), newRecruit.getDateOfHire(), newRecruit.getEmergencyContactName(), newRecruit.getEmergencyContactPhoneNumber());
         newRecruitService.save(newNewRecruit);
         ModelAndView modelAndView = new ModelAndView("redirect:/home");
         return modelAndView;

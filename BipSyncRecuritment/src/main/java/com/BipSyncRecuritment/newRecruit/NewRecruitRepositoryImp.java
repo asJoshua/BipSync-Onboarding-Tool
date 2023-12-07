@@ -20,14 +20,23 @@ public class NewRecruitRepositoryImp implements NewRecruitRepository {
     private void setNewRecruitRowMapper() {
 
         newRecruitRowMapper = (rs, i) -> new NewRecruit(
-                rs.getLong("id"),
-                rs.getString("firstName"),
-                rs.getString("lastName")
+                rs.getLong("recruit_id"),
+                rs.getString("first_name"),
+                rs.getString("last_name"),
+                rs.getString("date_of_birth"),
+                rs.getString("phone_number"),
+                rs.getString("passport_number"),
+                rs.getString("national_insurance_number"),
+                rs.getString("email"),
+                rs.getString("position"),
+                rs.getString("date_of_hire"),
+                rs.getString("emergency_contact_name"),
+                rs.getString("emergency_contact_phone")
         );
     }
 
     public NewRecruit getNewRecruit(Long id) {
-        String sql = "select * from recruits where id = ?";
+        String sql = "select * from recruits where recruit_id = ?";
         return jdbc.queryForObject(sql, newRecruitRowMapper, id);
     }
 
@@ -49,22 +58,40 @@ public class NewRecruitRepositoryImp implements NewRecruitRepository {
 
     private void update(NewRecruit aNewRecruit) {
         String menuInsertSql =
-                "update recruits set firstName = ?, lastName = ? where id = ?";
+                "update recruits set first_name = ?, last_name = ?, date_of_birth = ?, phone_number = ?, passport_number = ?, national_insurance_number = ?, email = ?, position = ?, date_of_hire = ?, emergency_contact_name = ?, emergency_contact_phone = ? where recruit_id = ?";
         jdbc.update(menuInsertSql,
                 aNewRecruit.getFirstName(),
                 aNewRecruit.getLastName(),
-                aNewRecruit.getId()
+                aNewRecruit.getDateOfBirth(),
+                aNewRecruit.getPhoneNumber(),
+                aNewRecruit.getPassportNumber(),
+                aNewRecruit.getNationalInsuranceNumber(),
+                aNewRecruit.getEmail(),
+                aNewRecruit.getPosition(),
+                aNewRecruit.getDateOfHire(),
+                aNewRecruit.getEmergencyContactName(),
+                aNewRecruit.getEmergencyContactPhoneNumber(),
+                aNewRecruit.getRecruitId()
         );
     }
 
     private void insert(NewRecruit aNewRecruit) {
         String menuInsertSql =
                 "insert into recruits " +
-                        "(firstName, lastName)" +
-                        " values (?,?)";
+                        "(first_name, last_name, date_of_birth, phone_number, passport_number, national_insurance_number, email, position, date_of_hire, emergency_contact_name, emergency_contact_phone)" +
+                        " values (?,?,?,?,?,?,?,?,?,?,?)";
         jdbc.update(menuInsertSql,
                 aNewRecruit.getFirstName(),
-                aNewRecruit.getLastName()
+                aNewRecruit.getLastName(),
+                aNewRecruit.getDateOfBirth(),
+                aNewRecruit.getPhoneNumber(),
+                aNewRecruit.getPassportNumber(),
+                aNewRecruit.getNationalInsuranceNumber(),
+                aNewRecruit.getEmail(),
+                aNewRecruit.getPosition(),
+                aNewRecruit.getDateOfHire(),
+                aNewRecruit.getEmergencyContactName(),
+                aNewRecruit.getEmergencyContactPhoneNumber()
         );
     }
 }

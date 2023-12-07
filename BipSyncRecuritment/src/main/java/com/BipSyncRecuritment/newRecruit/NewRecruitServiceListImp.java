@@ -13,22 +13,12 @@ public class NewRecruitServiceListImp implements NewRecruitService {
         this.newRecruitRepository = aNewrecruitRepository;
     }
 
-    public List<NewRecruit> getMenuItems() {
+    public List<NewRecruit> getNewRecruits() {
         return newRecruitRepository.getNewRecruits();
     }
 
-    public NewRecruit getMenuItem(Long id) {
-        return newRecruitRepository.getNewRecruit(id);
-    }
-
-    @Override
-    public List<NewRecruit> getNewRecruits() {
-        return null;
-    }
-
-    @Override
-    public NewRecruit getNewRecruit(Long id) {
-        return null;
+    public NewRecruit getNewRecruit(Long recruitId) {
+        return newRecruitRepository.getNewRecruit(recruitId);
     }
 
     public void save(NewRecruit menuItem) {
