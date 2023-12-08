@@ -11,12 +11,12 @@ public class StaffService {
         staffList= new ArrayList<>();
         staffList.addAll(
         staffList = List.of(
-                new staffInfo(0, "John", "Smith", "JohnSmith@bipsync.com", "IT admin"),
-                new staffInfo(1, "Dillon", "Jil", "DillonJ@bipsync.com","Hr"),
-                new staffInfo(2, "Arnold", "Ben", "ArBen@bipsync.com","Tech support"),
-                new staffInfo(3, "Timmy", "mac", "mac@bipsync.com","IT"),
+                new staffInfo(0, "Heather", "Perkins", "HeatherHR@bipsync.com", "Hr Manager"),
+                new staffInfo(1, "Ben", "Shariff", "BenShariffIT@bipsync.com","IT manager"),
+                new staffInfo(2, "Adrian ", "Pennington", "Pemmigton@bipsync.com","Senior software developer"),
+                new staffInfo(3, "Chau ", "Mai", "ChaiMai@bipsync.com","Marketing Director"),
                 new staffInfo(4, "Billy", "Smith", "BillSmith@bipsync.com","Data analyst"),
-                new staffInfo(5, "Heather", "Thomas", "HeatherHR@bipsync.com","Hr manager")
+                new staffInfo(5, "Luke", "Jones", "LukeJonesDevOps@bipsync.com","DevOps Engineer")
 
 
 
