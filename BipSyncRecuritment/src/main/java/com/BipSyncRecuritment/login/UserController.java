@@ -1,21 +1,34 @@
 package com.BipSyncRecuritment.login;
 
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.security.Principal;
 
 @Controller
 public class UserController {
     @Autowired
     private UserDetailsService userDetailsService;
 
+    @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
+    private UserLoginDetailsService userLoginDetailsService;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
+
+
+    @Autowired
+    ResetPasswordTokenRepository tokenRepository;
     private UserService userService;
     public UserController(UserService userService) {
 
@@ -31,4 +44,53 @@ public class UserController {
         return modelAndView;
     }
 
+    @GetMapping("/forgotPassword")
+    public String forgotPassword() {
+        return "login/forgotPassword";
+    }
+
+
+    @PostMapping("/forgotPassword")
+    public String forgotPasswordProcess(@RequestParam("email") String userEmail) {
+        String output = "";
+        User currentUser = userRepository.findByUserEmail(userEmail);
+        if (currentUser != null) {
+            output = userLoginDetailsService.sendResetPasswordEmail(currentUser);
+        }
+        if (output.equals("success")) {
+            return "redirect:/forgotPassword?success";
+        }
+        return "redirect:/forgotPassword?error";
+    }
+    @GetMapping("/resetPassword/{token}")
+    public String resetPasswordForm(@PathVariable String token, Model model) {
+        ResetPasswordToken reset = tokenRepository.findByToken(token);
+        if (reset != null && userLoginDetailsService.hasExipred(reset.getExpiryDateTime())) {
+            model.addAttribute("user", reset.getUser());
+            return "login/resetPassword";
+        }
+        return "redirect:/forgotPassword?error";
+    }
+
+    @PostMapping("/resetPassword")
+    public String passwordResetProcess(@ModelAttribute("user") @Valid User user, BindingResult bindingResult, @RequestParam("confirm-password") String confirmPassword) {
+        if (!user.getPassword().equals(confirmPassword)) {
+            bindingResult.rejectValue("password", "error.user", "Passwords do not match");
+        }
+        if (bindingResult.hasErrors()) {
+            return "login/resetPassword";
+        }
+        User currentUser = userRepository.findByUserEmail(user.getUserEmail());
+        System.out.println("currentUser: " + currentUser);
+        if (currentUser != null) {
+            currentUser.setPassword(passwordEncoder.encode(user.getPassword()));
+            userRepository.save(currentUser);
+        }
+        return "redirect:/login";
+    }
+
+
+
 }
+
+

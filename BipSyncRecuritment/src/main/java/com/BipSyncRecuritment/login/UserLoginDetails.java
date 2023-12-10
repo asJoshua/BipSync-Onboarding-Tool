@@ -1,5 +1,6 @@
 package com.BipSyncRecuritment.login;
 
+import jakarta.persistence.Column;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -9,6 +10,7 @@ public class UserLoginDetails implements UserDetails {
 
 
     private String username;
+    private String userEmail;
     private String password;
 
     private String userFirstName;
@@ -17,10 +19,11 @@ public class UserLoginDetails implements UserDetails {
     private Collection<? extends GrantedAuthority> authorities;
 
 
-    public UserLoginDetails(String username, String password, Collection<? extends GrantedAuthority> authorities,
+    public UserLoginDetails(String username,String userEmail, String password, Collection<? extends GrantedAuthority> authorities,
                              String userFirstName,String userLastName) {
 
         this.username = username;
+        this.userEmail = userEmail;
         this.password = password;
         this.authorities = authorities;
         this.userFirstName = userFirstName;
@@ -75,5 +78,14 @@ public class UserLoginDetails implements UserDetails {
         // TODO Auto-generated method stub
         return true;
     }
+
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+public  String getUserEmail(){
+        return userEmail;
+}
+
 
 }
