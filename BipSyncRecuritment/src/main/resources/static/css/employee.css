@@ -57,3 +57,21 @@ form {
     border-radius: 8px;
 }
 
+
+.edit-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-form-container{
+    background-color: #fff;
+    padding: 5px;
+    margin: 10px;
+    width: 500px;
+}
+
+.edit-title{
+    text-align: center;
+}
+

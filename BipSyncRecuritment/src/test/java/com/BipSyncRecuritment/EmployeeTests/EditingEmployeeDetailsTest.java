@@ -9,6 +9,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.validation.BindingResult;
 
 
 import java.time.LocalDate;
@@ -24,6 +25,9 @@ public class EditingEmployeeDetailsTest {
 
     @Mock
     private EmployeeService employeeService;
+
+    @Mock
+    private BindingResult bindingResult;
 
     @Test
     void EditEmployeeDetailsTest() {
@@ -47,7 +51,7 @@ public class EditingEmployeeDetailsTest {
         when(employeeService.getEmployeeById(recruitId)).thenReturn(existingEmployee);
 
 
-        String result = employeeController.editEmployeeDetails(recruitId, updatedEmployee);
+        String result = employeeController.editEmployeeDetails(recruitId, updatedEmployee,bindingResult);
 
 
         verify(employeeService, times(1)).saveEmployee(existingEmployee);

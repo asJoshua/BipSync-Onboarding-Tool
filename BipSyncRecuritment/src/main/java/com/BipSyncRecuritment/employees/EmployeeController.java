@@ -1,9 +1,11 @@
 package com.BipSyncRecuritment.employees;
 
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -51,7 +53,10 @@ public class EmployeeController {
     }
 
     @PostMapping("/employee/{recruitId}/edit")
-    public String editEmployeeDetails(@PathVariable Long recruitId, @ModelAttribute Employee updatedEmployee) {
+    public String editEmployeeDetails(@PathVariable Long recruitId, @Valid @ModelAttribute Employee updatedEmployee, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()){
+            return "employees/employee-details-edit";
+        }
         Employee currentEmployee = employeeService.getEmployeeById(recruitId);
 
 

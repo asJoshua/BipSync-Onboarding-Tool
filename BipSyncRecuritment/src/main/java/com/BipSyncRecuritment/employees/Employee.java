@@ -1,5 +1,6 @@
 package com.BipSyncRecuritment.employees;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 
 import java.time.LocalDate;
@@ -16,18 +17,29 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long recruitId;
-
+    @NotEmpty(message = "First name cannot be empty")
     private String firstName;
+    @NotEmpty(message = "Last name cannot be empty")
     private String lastName;
+
     private LocalDate dateOfBirth;
+    @NotEmpty(message = "Phone number cannot be empty")
     private String phoneNumber;
+    @NotEmpty(message = "Passport number cannot be empty")
     @Column
     private String passportNumber;
+    @NotEmpty(message = "National Insurance Number cannot be empty")
     private String nationalInsuranceNumber;
+    @NotEmpty(message = "Email cannot be empty")
+    @Email(message = "Invalid email format")
     private String email;
+    @NotEmpty(message = "Position  cannot be empty")
+
     private String position;
     private LocalDate dateOfHire;
+    @NotEmpty(message = "Emergency Contact Name cannot be empty")
     private String emergencyContactName;
+    @NotEmpty(message = "Emergency Contact Number cannot be empty")
     @Column(name = "emergency_contact_phone")
     private String emergencyContactPhoneNumber;
 
