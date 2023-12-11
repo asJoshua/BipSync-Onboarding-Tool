@@ -1,13 +1,17 @@
 package com.BipSyncRecuritment.employees;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -139,4 +143,14 @@ public class EmployeeController {
 
 
     }
+    @GetMapping("RemoveEmployee/{recruitId}")
+    public String deleteEmployee(@PathVariable Long recruitId, RedirectAttributes redirectAttributes) {
+        employeeService.deleteEmployee(recruitId);
+
+        // Add a flash attribute to pass data to the redirected page
+        redirectAttributes.addFlashAttribute("message", "Employee removed successfully");
+
+        return "redirect:/employee";
+    }
+
 }

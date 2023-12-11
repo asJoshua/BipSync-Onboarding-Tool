@@ -24,7 +24,9 @@ public class EmployeeService {
         employeeRepository.save(employee);
     }
 
-
+    public void deleteEmployee(Long recruitId) {
+        employeeRepository.deleteById(recruitId);
+    }
     public List<Task> getCompletedTasks(Long recruitId) {
         Employee employee = employeeRepository.findById(recruitId)
                 .orElseThrow(() -> new RuntimeException("Employee not found"));
