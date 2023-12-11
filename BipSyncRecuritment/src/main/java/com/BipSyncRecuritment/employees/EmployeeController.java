@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -122,7 +123,8 @@ public class EmployeeController {
     @PostMapping("/employee/{recruitId}/email/{taskId}")
     public String sendEmailReminder(
             @PathVariable Long recruitId,
-            @PathVariable Long taskId
+            @PathVariable Long taskId,
+            RedirectAttributes redirectAttributes
     ) {
 
         Task task = taskService.getTaskById(taskId);
@@ -136,11 +138,11 @@ public class EmployeeController {
 
             emailService.sendEmail(to, emailSubject, emailBody);
 
-
+            redirectAttributes.addFlashAttribute("emailMessage", "Email  reminder has been sent!");
 
         }
 
-            return "redirect:/employee";
+            return "redirect:/employee/{recruitId}";
         }
 
 }
