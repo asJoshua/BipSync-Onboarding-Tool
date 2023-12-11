@@ -27,17 +27,17 @@ public class StaffRepositoryImpl implements StaffRepository {
     }
 
     public List<staffInfo> getStaffInfo() {
-        String sql = "SELECT * FROM staff";
+        String sql = "SELECT * FROM staffInfo";
         return jdbc.query(sql, staffInfoMapper);
     }
 
     public staffInfo getStaffInfo(Long id) {
-        String sql = "SELECT * FROM staff WHERE id = ?";
+        String sql = "SELECT * FROM staffInfo WHERE id = ?";
         return jdbc.queryForObject(sql, staffInfoMapper, id);
     }
 
     public void addStaffInfo(staffInfo staffInfo) {
-        String sql = "INSERT INTO staff (name, surname, email, role) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO staffInfo (name, surname, email, role) VALUES (?, ?, ?, ?)";
         jdbc.update(sql, staffInfo.getName(), staffInfo.getLastName(), staffInfo.getEmail(), staffInfo.getRole());
     }
 }
