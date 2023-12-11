@@ -18,6 +18,11 @@ body{
     font-weight: bold;
 }
 
+.forgot-pass-title{
+    text-align: center;
+    font-weight: bold;
+}
+
 .login-btn{
     text-align: center;
     background-color: #F6653C;
@@ -25,5 +30,85 @@ body{
 .btn-for-login{
     text-align: center;
     padding-top: 20px;
+    font-weight: bold;
+}
+.forgot-pass-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+
+}
+
+.forgot-pass-form-container{
+    background-color: #fff;
+    padding: 30px;
+    margin: 10px;
+    width: 400px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+
+
+
+.btn-forgot-pass{
+    text-align: center;
+    background-color: #F6653C;
+}
+
+.btn-for-forgot-pass{
+    text-align: center;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+.reset-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+
+}
+
+.rest-form-container{
+    background-color: #fff;
+    padding: 30px;
+    margin: 10px;
+    width: 400px;
+}
+
+.btn-submit-reset{
+    text-align: center;
+    background-color: #F6653C;
+}
+.btn-for-reset{
+    text-align: center;
+    padding-top: 20px;
+    font-weight: bold;
+}
+
+.email{
+    font-weight: bold;
+}
+.pass{
+    font-weight: bold;
+}
+
+.confirm-pass{
     font-weight: bold;
 }
