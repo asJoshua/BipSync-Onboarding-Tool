@@ -18,7 +18,7 @@ values ('Ava', 'Patel', '2000/08/03', '07943567892', '768798678', 'AL097869C', '
 insert into recruits(first_name, last_name, date_of_birth, phone_number, passport_number, national_insurance_number, email, position, date_of_hire, emergency_contact_name, emergency_contact_phone)
 values ('Noah', 'Davis', '1998/04/03', '07957897895', '458798698', 'AW092869B', 'ndavis@bipsync.com', 'Data Analyst', '2022/06/12', 'Sarah', '07657465812');
 insert into recruits(first_name, last_name, date_of_birth, phone_number, passport_number, national_insurance_number, email, position, date_of_hire, emergency_contact_name, emergency_contact_phone)
-values ('Harper', 'Mitchell', '1997/10/18', '07865434545', '765678932', 'JW134678D', 'apatel@bipsync.com', 'Software Engineer', '2023/07/14', 'Josh', '079345789');
+values ('Harper', 'Mitchell', '1997/10/18', '07865434545', '765678932', 'JW134678D', 'hmitchell@bipsync.com', 'Software Engineer', '2023/07/14', 'Josh', '079345789');
 
 insert into tasks(task_id, task_name, task_due_date, task_responsibility)
 values(1,'Add to Company group lists and calenders','2023/12/20','HR');
@@ -45,3 +45,7 @@ insert into employee_tasks(t_recruit_id, t_task_id) values(2,4);
 insert into employee_tasks(t_recruit_id, t_task_id) values(5,5);
 insert into employee_tasks(t_recruit_id, t_task_id) values(3,6);
 insert into employee_tasks(t_recruit_id, t_task_id) values(4,7);
+
+
+
+
