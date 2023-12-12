@@ -4,78 +4,98 @@
     <meta charset="UTF-8">
     <title>New Recruit Form</title>
     <link th:replace="~{fragments/header :: bootstrap-css}"/>
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body>
 <div id="header">
     <div th:replace="~{fragments/header :: header}"/>
 </div>
-<h2 class="form-title">New Recruit Form</h2>
 
 <section>
-    <form th:method="post" th:object="${newRecruit}">
-        <div class="container form-ctn">
+
+    <div class="content">
+
+        <form  th:method="post" th:object="${newRecruit}" class="container form-ctn">
+            <h2 class="form-title">New Recruit</h2>
+
             <input th:field="*{recruitId}" th:value="0" type="hidden"/>
 
-            <div class="d-flex p-4">
-                <label for="firstName" th:for="*{firstName}">First Name:</label>
-                <input type="text" id="firstName" th:field="*{firstName}" name="firstName" required>
-                <br>
+            <div class="d-flex justify-content-center">
+                <div class="mb-3 p-2">
+                    <label for="firstName" th:for="*{firstName}" class="form-label">First Name:</label>
+                    <input type="text" class="form-control" id="firstName" th:field="*{firstName}" name="firstName" required>
+                </div>
 
-                <label for="lastName" th:for="*{lastName}">Last Name:</label>
-                <input type="lastName" id="lastName" th:field="*{lastName}" name="lastName" required>
-                <br>
+                <div class="mb-3 p-2">
+                    <label for="lastName" th:for="*{lastName}" class="form-label">Last Name:</label>
+                    <input type="text" class="form-control" th:field="*{lastName}" id="lastName" name="lastName" required>
+                </div>
             </div>
 
-            <div class="d-flex p-4">
-                <label for="dateOfBirth" th:for="*{dateOfBirth}">Date of Birth:</label>
-                <input type="date" id="dateOfBirth" th:field="*{dateOfBirth}" name="dateOfBirth" required>
-                <br>
+            <div class="d-flex justify-content-center">
+                <div class="mb-3 p-2">
+                    <label for="dateOfBirth" th:for="*{dateOfBirth}" class="form-label">Date of Birth:</label>
+                    <input type="text" class="form-control" id="dateOfBirth" th:field="*{dateOfBirth}" name="dateOfBirth"  required>
+                </div>
 
-                <label for="phoneNumber" th:for="*{phoneNumber}">Phone Number:</label>
-                <input type="phoneNumber" id="phoneNumber" th:field="*{phoneNumber}" name="phoneNumber" required>
-                <br>
+                <div class="mb-3 p-2">
+                    <label for="phoneNumber" th:for="*{phoneNumber}" class="form-label">Phone Number:</label>
+                    <input type="text" class="form-control" id="phoneNumber" th:field="*{phoneNumber}" name="phoneNumber" required>
+                </div>
             </div>
 
-            <div class="d-flex p-4">
-                <label for="passportNumber" th:for="*{passportNumber}">Passport Number:</label>
-                <input type="text" id="passportNumber" th:field="*{passportNumber}" name="passportNumber" required>
-                <br>
+            <div class="d-flex justify-content-center">
+                <div class="mb-3 p-2">
+                    <label for="passportNumber" th:for="*{passportNumber}" class="form-label">Passport Number:</label>
+                    <input type="text" class="form-control" id="passportNumber" th:field="*{passportNumber}" name="passportNumber" required>
+                </div>
 
-                <label for="nationalInsurance" th:for="*{nationalInsuranceNumber}">National Insurance:</label>
-                <input type="text" id="nationalInsurance" th:field="*{nationalInsuranceNumber}" name="nationalInsurance" required>
-                <br>
+                <div class="mb-3 p-2">
+                    <label for="nationalInsurnaceNumber" th:for="*{nationalInsuranceNumber}" class="form-label">National Insurance Number:</label>
+                    <input type="text" class="form-control" id="nationalInsurnaceNumber" th:field="*{nationalInsuranceNumber}" name="nationalInsuranceNumber" required>
+                </div>
             </div>
 
-            <div class="d-flex p-4">
-                <label for="email" th:for="*{email}">Email:</label>
-                <input type="email" id="email" th:field="*{email}" name="email" required>
-                <br>
+            <div class="d-flex justify-content-center">
+                <div class="mb-3 p-2">
+                    <label for="email" th:for="*{email}" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="email" th:field="*{email}" name="email" placeholder="name@example.com" style="width: 428px;" required>
+                </div>
             </div>
 
-            <div class="d-flex p-4">
-                <label for="position" th:for="*{position}">Position:</label>
-                <input type="position" id="position" th:field="*{position}" name="position" required>
-                <br>
+            <div class="d-flex justify-content-center">
+                <div class="mb-3 p-2">
+                    <label for="position" th:for="*{position}" class="form-label">Position:</label>
+                    <input type="text" class="form-control" id="position" th:field="*{position}" name="position"  required>
+                </div>
 
-                <label for="dateOfHire" th:for="*{dateOfHire}">Date of Hire:</label>
-                <input type="date" id="dateOfHire" th:field="*{dateOfHire}" name="dateOfBirth" required>
+                <div class="mb-3 p-2">
+                    <label for="dateOfHire" th:for="*{dateOfHire}" class="form-label">Date of Hire:</label>
+                    <input type="text" class="form-control" id="dateOfHire" th:field="*{dateOfHire}" name="dateOfHire" required>
+                </div>
             </div>
 
-            <dic class="d-flex p-4">
-                <label for="emergencyContactName" th:for="*{emergencyContactName}">Emergency Contact Name:</label>
-                <input type="text" id="emergencyContactName" th:field="*{emergencyContactName}" name="emergencyContactName" required>
-                <br>
+            <div class="d-flex justify-content-center">
+                <div class="mb-3 p-2">
+                    <label for="emergencyContactName" th:for="*{emergencyContactName}" class="form-label">Emergency Contact Name:</label>
+                    <input type="text" class="form-control" id="emergencyContactName" th:field="*{emergencyContactName}" name="emergencyContactName" required>
+                </div>
 
-                <label for="emergencyContactPhone" th:for="*{emergencyContactPhoneNumber}">Emergency Contact Phone Number:</label>
-                <input type="text" id="emergencyContactPhone" th:field="*{emergencyContactPhoneNumber}" name="emergencyContactPhone" required>
-                <br>
-            </dic>
+                <div class="mb-3 p-2">
+                    <label for="emergencyContactPhone" th:for="*{emergencyContactPhoneNumber}" class="form-label">Emergency Contact Phone:</label>
+                    <input type="text" class="form-control" id="emergencyContactPhone" th:field="*{emergencyContactPhoneNumber}" name="emergencyContactPhone" required>
+                </div>
+            </div>
 
-            <button type="submit" class="login-btn">Submit</button>
-        </div>
-    </form>
+
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-danger">Submit</button>
+            </div>
+        </form>
+    </div>
+
 </section>
-
+<div th:replace="fragments/header :: scripts"></div>
 </body>
 </html>

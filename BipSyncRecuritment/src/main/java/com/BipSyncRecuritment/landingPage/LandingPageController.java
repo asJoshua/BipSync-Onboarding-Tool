@@ -15,10 +15,8 @@ public class LandingPageController {
     private UserDetailsService userDetailsService;
 
     @GetMapping("/home")
-    public ModelAndView getHome(Model model, Principal principal) {
+    public ModelAndView getHome() {
         ModelAndView modelAndView = new ModelAndView("home/home");
-        UserDetails userDetails = userDetailsService.loadUserByUsername(principal.getName());
-        model.addAttribute("userdetail" , userDetails);
         return modelAndView;
     }
 }

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>New Recruit Details</title>
   <link th:replace="~{fragments/header :: bootstrap-css}"/>
+  <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
   <div id="header">
@@ -26,5 +27,6 @@
         <li th:text="${'Emergency Contact Number: ' + newRecruit.emergencyContactPhoneNumber}" class="list-group-item"></li>
       </ul>
     </div>
+    <div th:replace="fragments/header :: scripts"></div>
 </body>
 </html>
