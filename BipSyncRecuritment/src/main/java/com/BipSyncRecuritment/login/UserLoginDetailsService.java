@@ -50,7 +50,6 @@ public class UserLoginDetailsService  implements UserDetailsService {
     }
 
 
-
     public User registerStaff(String username, String userEmail, String userFirstName, String userLastName, String password, Set<String> roles) {
         User newStaffUser = new User(username, userEmail, userFirstName, userLastName, passwordEncoder.encode(password), roles);
         userRepository.save(newStaffUser);

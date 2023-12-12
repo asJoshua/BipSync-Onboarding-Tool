@@ -2,39 +2,58 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+  <link rel="stylesheet" href="/css/style.css" />
     <title>Register Staff</title>
 </head>
 <body>
-<div class="container">
-  <h2>User Registration</h2>
+
+
+<div class=" register-container">
+  <div class="register-form-container">
+  <h2>Register a New User</h2>
   <form th:action="@{/registerStaff}" th:object="${user}" method="post">
     <div class="form-group">
       <label for="username">Username:</label>
-      <input  id= "username" type="text" class="form-control" th:field="*{username}" required>
+      <input id="username" type="text" class="form-control" th:field="*{username}">
+      <div class="alert alert-danger" th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Username Error</div>
     </div>
     <div class="form-group">
-      <label for="email">Password:</label>
-      <input  id="email" type="email" class="form-control" th:field="*{userEmail}" required>
+      <label for="email">User Email:</label>
+      <input  id="email" type="email" class="form-control" th:field="*{userEmail}">
+      <div class="alert alert-danger" th:errors="*{userEmail}" th:if="${#fields.hasErrors('userEmail')}">Email Error</div>
     </div>
     <div class="form-group">
-      <label for="userFirstName">Full Name:</label>
-      <input id="userFirstName" type="text" class="form-control" th:field="*{userFirstName}" required>
-
+      <label for="userFirstName">First Name:</label>
+      <input id="userFirstName" type="text" class="form-control" th:field="*{userFirstName}">
+      <div class="alert alert-danger" th:errors="*{userFirstName}" th:if="${#fields.hasErrors('userFirstName')}">First Name Error</div>
     </div>
+
 
     <div class="form-group">
-      <label for="userLastName">Full Name:</label>
-      <input id="userLastName" type="text" class="form-control" th:field="*{userLastName}" required>
-
+      <label for="userLastName">Last Name:</label>
+      <input id="userLastName" type="text" class="form-control" th:field="*{userLastName}">
+      <div class="alert alert-danger" th:errors="*{userLastName}" th:if="${#fields.hasErrors('userLastName')}">Last Name Error</div>
     </div>
+
 
     <div class="form-group">
-      <label for="password">Full Name:</label>
-      <input  id="password" type="password" class="form-control" th:field="*{password}" required>
-
+      <label for="password">Password:</label>
+      <input  id="password" type="password" class="form-control" th:field="*{password}">
+      <div class="alert alert-danger" th:errors="*{password}" th:if="${#fields.hasErrors('password')}">Password Error</div>
     </div>
-    <button type="submit" class="btn btn-primary">Register Staff User</button>
+    <div class="btn-for-register">
+    <button type="submit" class="register-btn">Register Staff User</button>
+    </div>
+    <div th:if="${success}" class="error-container">
+      <div class="alert alert-success" th:text="${success}"></div>
+    </div>
+
+
   </form>
+</div>
 </div>
 
 </body>

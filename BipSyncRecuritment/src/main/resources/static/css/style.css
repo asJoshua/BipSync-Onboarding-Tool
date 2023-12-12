@@ -112,3 +112,27 @@ input[type="password"] {
 .confirm-pass{
     font-weight: bold;
 }
+
+.register-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.register-form-container{
+    background-color: #fff;
+    padding: 30px;
+    margin: 10px;
+    width: 400px;
+}
+
+.register-btn{
+    text-align: center;
+    background-color: #F6653C;
+}
+.btn-for-register{
+    text-align: center;
+    padding-top: 20px;
+    font-weight: bold;
+}

@@ -10,4 +10,9 @@ public interface UserRepository extends JpaRepository<User, Long>{
 
     User save (User user);
 
+
+    boolean existsByUsername(String username);
+
+    boolean existsByUserEmail(String userEmail);
+
 }

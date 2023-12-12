@@ -2,6 +2,7 @@ package com.BipSyncRecuritment.login;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 
 import java.util.Set;
@@ -14,16 +15,17 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    @NotEmpty(message = "Username is required")
     private String username;
-
+    @Email
+    @NotEmpty(message = "Email is required")
     @Column(name = "user_email")
     private String userEmail;
-
+    @NotEmpty(message = "First Name is required")
     private String userFirstName;
-
+    @NotEmpty(message = "Last Name is required")
     private String userLastName;
-    //@NotEmpty(message = "Password is required")
+    @NotEmpty(message = "Password is required")
     private String password;
 
 
@@ -72,6 +74,10 @@ public class User {
         return username;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getPassword() {
         return password;
     }
@@ -105,6 +111,10 @@ public class User {
 
     public void setPasswordResetToken(ResetPasswordToken passwordResetToken) {
         this.passwordResetToken = passwordResetToken;
+    }
+
+    public void setRoles(Set<String> roles) {
+        this.roles= roles;
     }
 }
 

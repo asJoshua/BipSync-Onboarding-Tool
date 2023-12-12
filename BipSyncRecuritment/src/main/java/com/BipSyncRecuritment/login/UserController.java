@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -30,7 +31,8 @@ public class UserController {
     PasswordEncoder passwordEncoder;
 
 
-
+@Autowired
+private UserServiceImpl userServiceImp;
     @Autowired
     ResetPasswordTokenRepository tokenRepository;
     private UserService userService;
@@ -101,13 +103,32 @@ public class UserController {
         return modelAndView;
     }
 
+
+
     @PostMapping("/registerStaff")
-    public ModelAndView registerUser(@ModelAttribute("user") User user, @RequestParam String username, @RequestParam String userEmail, @RequestParam String userFirstName, @RequestParam String userLastName, @RequestParam String password) {
+    public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+
+        if (userServiceImp.usernameAlreadyExists(user.getUsername())) {
+            bindingResult.rejectValue("username", "error.user", "This Username already exists");
+
+        }
+        if(userServiceImp.emailAlreadyExists(user.getUserEmail())){
+            bindingResult.rejectValue("userEmail","error.user","Email Already exists");
+
+        }
+        if (bindingResult.hasErrors()) {
+            return "login/registerStaff";
+        }
+
+
         Set<String> roles = new HashSet<>(Arrays.asList("STAFF"));
-        userLoginDetailsService.registerStaff(username, userEmail,userFirstName ,userLastName,password, roles);
-        ModelAndView modelAndView = new ModelAndView("login/login");
-        return  modelAndView;
+        userLoginDetailsService.registerStaff(user.getUsername(), user.getUserEmail(), user.getUserFirstName(),user.getUserLastName(),user.getPassword(), roles);
+        redirectAttributes.addFlashAttribute("success", "User successfully added!");
+
+
+        return "redirect:/registerStaff";
     }
+
 }
 
 
