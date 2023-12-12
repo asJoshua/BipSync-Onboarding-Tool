@@ -26,6 +26,8 @@ public class EmailSentTest {
     @Captor
     private ArgumentCaptor<SimpleMailMessage> captor;
 
+
+    /* Adapted using stackover flow  https://stackoverflow.com/questions/36253040/example-of-mockitos-argumentcaptor  */
     @Test
     void sendEmailTest() {
 
@@ -39,11 +41,11 @@ public class EmailSentTest {
 
         verify(javaMailSender, times(1)).send(captor.capture());
 
-        SimpleMailMessage capturedMessage = captor.getValue();
+        SimpleMailMessage capturedArgument= captor.getValue();
 
 
-        assertEquals(to, capturedMessage.getTo()[0]);
-        assertEquals(subject, capturedMessage.getSubject());
-        assertEquals(body, capturedMessage.getText());
+        assertEquals(to, capturedArgument.getTo()[0]);
+        assertEquals(subject, capturedArgument.getSubject());
+        assertEquals(body, capturedArgument.getText());
     }
 }

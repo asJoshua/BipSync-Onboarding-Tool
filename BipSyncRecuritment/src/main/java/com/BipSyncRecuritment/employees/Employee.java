@@ -68,6 +68,15 @@ public class Employee {
     public String getFirstName(){
         return firstName;
     }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public String getLastName(){
         return lastName;
     }
@@ -96,6 +105,11 @@ public class Employee {
 
 
     }
+
+    public void setTasks(Set<Task> tasks) {
+        this.tasks = tasks;
+    }
+
     public void removeTasks(Long taskId) {
         tasks.removeIf(task -> task.getTaskId().equals(taskId));
     }
