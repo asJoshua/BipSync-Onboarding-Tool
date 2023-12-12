@@ -19,15 +19,15 @@ public class UserLoginDetails implements UserDetails {
     private Collection<? extends GrantedAuthority> authorities;
 
 
-    public UserLoginDetails(String username,String userEmail, String password, Collection<? extends GrantedAuthority> authorities,
-                             String userFirstName,String userLastName) {
+    public UserLoginDetails(String username,String userEmail,String userFirstName,String userLastName, String password, Collection<? extends GrantedAuthority> authorities
+                             ) {
 
         this.username = username;
         this.userEmail = userEmail;
-        this.password = password;
-        this.authorities = authorities;
         this.userFirstName = userFirstName;
         this.userLastName = userLastName;
+        this.password = password;
+        this.authorities = authorities;
 
 
     }

@@ -11,6 +11,10 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 @Controller
 public class UserController {
     @Autowired
@@ -90,7 +94,22 @@ public class UserController {
     }
 
 
+    @GetMapping("/registerStaff")
+    public ModelAndView registerStaffUser(Model model) {
+        ModelAndView modelAndView = new ModelAndView("login/registerStaff");
+        model.addAttribute("user", new User());
+        return modelAndView;
+    }
 
+    @PostMapping("/registerStaff")
+    public ModelAndView registerUser(@ModelAttribute("user") User user, @RequestParam String username, @RequestParam String userEmail, @RequestParam String userFirstName, @RequestParam String userLastName, @RequestParam String password) {
+        Set<String> roles = new HashSet<>(Arrays.asList("STAFF"));
+        userLoginDetailsService.registerStaff(username, userEmail,userFirstName ,userLastName,password, roles);
+        ModelAndView modelAndView = new ModelAndView("login/login");
+        return  modelAndView;
+    }
 }
+
+
 
 

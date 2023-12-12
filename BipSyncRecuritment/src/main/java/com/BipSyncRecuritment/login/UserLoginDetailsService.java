@@ -42,12 +42,20 @@ public class UserLoginDetailsService  implements UserDetailsService {
         return new UserLoginDetails(
                 user.getUsername(),
                 user.getUserEmail(),
+                user.getUserFirstName(),
+                user.getUserLastName(),
                 user.getPassword(),
-                authorities(user.getRoles()),
-                user.getFirstname(),
-                user.getLastname());
+                authorities(user.getRoles()));
+
     }
 
+
+
+    public User registerStaff(String username, String userEmail, String userFirstName, String userLastName, String password, Set<String> roles) {
+        User newStaffUser = new User(username, userEmail, userFirstName, userLastName, passwordEncoder.encode(password), roles);
+        userRepository.save(newStaffUser);
+        return newStaffUser;
+    }
 
     // authority granted  to user with specific roles
     public Collection<? extends GrantedAuthority> authorities(Set<String> roles) {

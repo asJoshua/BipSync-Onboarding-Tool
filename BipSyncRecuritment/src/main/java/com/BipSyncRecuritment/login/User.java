@@ -20,13 +20,16 @@ public class User {
     @Column(name = "user_email")
     private String userEmail;
 
-    @NotEmpty(message = "Password is required")
-    private String password;
-
-
     private String userFirstName;
 
     private String userLastName;
+    //@NotEmpty(message = "Password is required")
+    private String password;
+
+
+
+
+
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private ResetPasswordToken passwordResetToken;
@@ -38,6 +41,15 @@ public class User {
     private Set<String> roles;
 
     public User () {}
+
+    public User(String username, String userEmail, String userFirstName, String userLastName, String password, Set<String> roles){
+        this.username= username;
+        this.userEmail = userEmail;
+        this.userFirstName = userFirstName;
+        this.userLastName = userLastName;
+        this.password = password;
+        this.roles = roles;
+    }
 
 
 
@@ -67,13 +79,21 @@ public class User {
     public void setPassword(String password){
         this.password = password;
     }
-    public String getFirstname() {
+    public String getUserFirstName() {
         return userFirstName;
     }
-    public String getLastname() {
+
+    public void setUserFirstName(String userFirstName) {
+        this.userFirstName = userFirstName;
+    }
+
+    public String getUserLastName() {
         return userLastName;
     }
 
+    public void setUserLastName(String userLastName) {
+        this.userLastName = userLastName;
+    }
 
     public Set<String> getRoles() {
         return roles;
