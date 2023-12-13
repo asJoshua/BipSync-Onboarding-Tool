@@ -30,11 +30,13 @@ public class SecurityConfig {
     @SuppressWarnings("removal")
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
         http.csrf().disable().authorizeHttpRequests()
 
                 .requestMatchers( "/images/**", "/css/**", "/home", "/home/newRecruit","/styles/**","/viewEmployees","/employee/{recruitId}","/employee/{recruitId}/add-task","/employee/{recruitId}/remove-task/{taskId}","/employee/{recruitId}/completed-tasks").permitAll()
                 .requestMatchers("/employee").hasRole("ADMIN")
+
+                .requestMatchers("/dash","/styles/**","/Staff","/Staff/edit/{id}").permitAll()
+
                 .and()
                 .formLogin()
                 .loginPage("/login")

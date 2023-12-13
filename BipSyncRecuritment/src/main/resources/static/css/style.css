@@ -1,4 +1,4 @@
-body{
+.body-login{
     background-color: #2A2731;
 }
 .login-container{
@@ -26,4 +26,12 @@ body{
     text-align: center;
     padding-top: 20px;
     font-weight: bold;
+}
+.username-label{
+    font-weight: bold;
+}
+
+.password-label{
+    font-weight: bold;
+
 }
