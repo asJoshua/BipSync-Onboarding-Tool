@@ -13,6 +13,7 @@ public interface StaffRepository {
 
     void updateStaffInfo(staffInfo staffInfo);
     void save(staffInfo staffInfo);
+    void deleteStaffMember(Long id);
 
 }
 

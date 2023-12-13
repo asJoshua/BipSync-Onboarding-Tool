@@ -43,13 +43,22 @@ public class StaffController {
         return modelAndView;
     }
     @PostMapping("/Staff/edit/{id}")
-    public ModelAndView updateStaff(@PathVariable Long id,@ModelAttribute("staffInfo") staffInfo staffInfo) {
+    public ModelAndView updateStaff(@PathVariable Long id, @ModelAttribute("staffInfo") staffInfo staffInfo, BindingResult bindingResult)  {
+        if (bindingResult.hasErrors()) {
+            // Handle validation errors
+            return new ModelAndView("/staff/editStaff"); // Return to the edit page with error messages
+        }
         staffRepository.updateStaffInfo(staffInfo);
 
 
         // Redirect to the staff list page or wherever appropriate
         return new ModelAndView("redirect:/Staff");
     }
+    @GetMapping("/DeleteStaff/{id}")
+    public ModelAndView deleteStaff(@PathVariable Long id) {
+        ModelAndView modelAndView = new ModelAndView("staff/staffList");
+        staffRepository.deleteStaffMember(id);
+        return new ModelAndView("redirect:/Staff");
 
-
+    }
 }

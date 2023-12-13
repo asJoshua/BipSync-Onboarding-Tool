@@ -13,21 +13,21 @@
 
   <label for="name">Name:</label>
   <input type="text" id="name" th:field="*{name}" required/>
-<!--  <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></span>-->
+  <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></span>
 
   <label for="lastname">LastName:</label>
   <input type="text" id="lastname" th:field="*{lastName}" required/>
-<!--  <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="error"></span>-->
+  <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="error"></span>
 
 
   <label for="email">Email:</label>
   <input type="email" id="email" th:field="*{email}" required/>
-<!--  <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></span>-->
+  <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></span>
 
 
   <label for="role">Role:</label>
   <input type="text" id="role" th:field="*{role}" required/>
-<!--  <span th:if="${#fields.hasErrors('role')}" th:errors="*{role}" class="error"></span>-->
+  <span th:if="${#fields.hasErrors('role')}" th:errors="*{role}" class="error"></span>
 
 
   <button type="submit">Save Changes</button>

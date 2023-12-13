@@ -15,17 +15,17 @@ public class staffInfo {
     @Id
     private Long id;
 
-//    @NotBlank(message = "Name is required")
-//    @Size(min = 2, max = 10, message = "Field must be between 2 and 10 characters")
+    @NotBlank(message = "Name is required")
+    @Size(min = 2, max = 10, message = "Field must be between 2 and 10 characters")
     private String name;
-//    @Size(min = 2, max = 10, message = "Field must be between 2 and 10 characters")
-//    @NotBlank(message = "Last Name is required")
+    @Size(min = 2, max = 10, message = "Field must be between 2 and 10 characters")
+    @NotBlank(message = "Last Name is required")
     private String lastName;
-//    @Size(min = 2, max = 10, message = "Field must be between 2 and 20 characters")
-//    @Email(message = "Invalid email address")
+    @Size(min = 2, max = 10, message = "Field must be between 2 and 20 characters")
+    @Email(message = "Invalid email address")
     private String email;
-//    @Size(min = 2, max = 10, message = "Field must be between 2 and 10 characters")
-//    @NotBlank(message= "Role is required")
+    @Size(min = 2, max = 10, message = "Field must be between 2 and 10 characters")
+    @NotBlank(message= "Role is required")
     private String role;
 
     public staffInfo(){

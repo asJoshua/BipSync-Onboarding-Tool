@@ -35,7 +35,7 @@ public class SecurityConfig {
                 .requestMatchers( "/images/**", "/css/**", "/home", "/home/newRecruit","/styles/**","/viewEmployees","/employee/{recruitId}","/employee/{recruitId}/add-task","/employee/{recruitId}/remove-task/{taskId}","/employee/{recruitId}/completed-tasks").permitAll()
                 .requestMatchers("/employee").hasRole("ADMIN")
 
-                .requestMatchers("/dash","/styles/**","/Staff","/Staff/edit/{id}").permitAll()
+                .requestMatchers("/dash","/styles/**","/Staff","/Staff/edit/{id}","/DeleteStaff/{id}").permitAll()
 
                 .and()
                 .formLogin()

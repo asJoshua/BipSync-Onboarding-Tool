@@ -46,6 +46,12 @@ public class StaffRepositoryImpl implements StaffRepository {
         jdbc.update(sql, staff.getName(), staff.getLastName(), staff.getEmail(), staff.getRole(), staff.getId());
 
     }
+    public void deleteStaffMember(Long id) {
+        String sql = "DELETE from staffInfo WHERE id = ?";
+        jdbc.update(sql,id);
+
+    }
+
 
 
     @Override
