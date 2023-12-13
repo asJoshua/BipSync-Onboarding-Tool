@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/employee.css" />
+    <title>Edit Details</title>
+</head>
+<body>
+
+
+<div class="edit-container">
+    <div class="edit-form-container">
+        <h2 class="edit-title">Edit Details</h2>
+
+<form th:action="@{'/employee/' + ${employee.recruitId} + '/edit'}" method="post"  id="editForm">
+    <div class="form-group">
+    <label for="firstName">Edit Employee First Name:</label>
+<input type="text" id="firstName" name="firstName" th:value="${employee.firstName}" >
+        <div class="alert alert-danger" th:errors="*{employee.firstName}" th:if="${#fields.hasErrors('employee.firstName')}">First Name Error</div>
+    </div>
+    <div class="form-group">
+    <label for="lastName">Edit Employee Last Name:</label>
+    <input type="text" id="lastName" name="lastName" th:value="${employee.lastName}" >
+        <div class="alert alert-danger" th:errors="*{employee.lastName}" th:if="${#fields.hasErrors('employee.lastName')}">Last Name Error</div>
+    </div>
+    <div class="form-group">
+    <label for="dateOfBirth">Edit Employee Date Of Birth:</label>
+    <input type="date" id="dateOfBirth" name="dateOfBirth" th:value="${employee.dateOfBirth}" required >
+        </div>
+    <div class="form-group">
+    <label for="position">Edit Employee Position:</label>
+    <input type="text" id="position" name="position" th:value="${employee.position}" >
+        <div class="alert alert-danger" th:errors="*{employee.position}" th:if="${#fields.hasErrors('employee.position')}">Position Error</div>
+    </div>
+    <div class="form-group">
+    <label for="email">Edit Employee Email:</label>
+    <input type="text" id="email" name="email" th:value="${employee.email}" >
+        <div class="alert alert-danger" th:errors="*{employee.email}" th:if="${#fields.hasErrors('employee.email')}">Email Error</div>
+    </div>
+    <div class="form-group">
+    <label for="phoneNumber">Edit Employee Phone Number:</label>
+    <input type="text" id="phoneNumber" name="phoneNumber" th:value="${employee.phoneNumber}" >
+        <div class="alert alert-danger" th:errors="*{employee.phoneNumber}" th:if="${#fields.hasErrors('employee.phoneNumber')}">Phone Number Error</div>
+    </div>
+        <div class="form-group">
+    <label for="passportNumber">Edit Employee Passport Number:</label>
+    <input type="text" id="passportNumber" name="passportNumber" th:value="${employee.passportNumber}" >
+            <div class="alert alert-danger" th:errors="*{employee.passportNumber}" th:if="${#fields.hasErrors('employee.passportNumber')}">Passport Number Error</div>
+        </div>
+        <div class="form-group">
+    <label for="nationalInsuranceNumber">Edit Employee NI Number:</label>
+    <input type="text" id="nationalInsuranceNumber" name="nationalInsuranceNumber" th:value="${employee.nationalInsuranceNumber}" >
+            <div class="alert alert-danger" th:errors="*{employee.nationalInsuranceNumber}" th:if="${#fields.hasErrors('employee.nationalInsuranceNumber')}">National Insurance Number Error</div>
+        </div>
+        <div class="form-group">
+    <label for="dateOfHire">Edit Employee Date of Hire:</label>
+    <input type="date" id="dateOfHire" name="dateOfHire" th:value="${employee.dateOfHire}" required >
+        </div>
+        <div class="form-group">
+    <label for="emergencyContactName">Edit Employee Emergency Contact Name:</label>
+    <input type="text" id="emergencyContactName" name="emergencyContactName" th:value="${employee.emergencyContactName}" >
+            <div class="alert alert-danger" th:errors="*{employee.emergencyContactName}" th:if="${#fields.hasErrors('employee.emergencyContactName')}">Emergency Contact Name Error</div>
+        </div>
+        <div class="form-group">
+    <label for="emergencyContactPhoneNumber">Edit Employee Emergency Contact Number:</label>
+    <input type="text" id="emergencyContactPhoneNumber" name="emergencyContactPhoneNumber" th:value="${employee.emergencyContactPhoneNumber}">
+            <div class="alert alert-danger" th:errors="*{employee.emergencyContactPhoneNumber}" th:if="${#fields.hasErrors('employee.emergencyContactPhoneNumber')}">Emergency contact phone number Error</div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update Details</button>
+
+</form>
+</div>
+</div>
+</body>
+
+</html>

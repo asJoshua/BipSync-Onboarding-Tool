@@ -56,7 +56,7 @@ public class UserLoginDetailsService  implements UserDetailsService {
         return newStaffUser;
     }
 
-    // authority granted  to user with specific roles
+    // authority granted  to user with specific roles like admin or staff
     public Collection<? extends GrantedAuthority> authorities(Set<String> roles) {
         return roles.stream()
                 .map(role -> new SimpleGrantedAuthority("ROLE_" + role))
