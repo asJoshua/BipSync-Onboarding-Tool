@@ -17,7 +17,7 @@
         <h1>Task Checklist</h1>
         <p>Tasks to be completed in chronological order.</p>
         <br>
-        <h3>Overdue</h3>
+        <h3>To be Completed</h3>
         <table class="table table-striped">
             <thead>
                 <th scope="col">Task Name</th>
@@ -26,63 +26,11 @@
                 </tr>
             </thead>
             <tbody>
-<!--            <tr th:each="task, rowStat : ${employee.tasksOrderByDueDate}">-->
-<!--                <td th:id="'subject-' + ${task.taskId}" th:class="${#sets.contains(employee.completedTasks, task.taskId) ? 'complete' : ''}" th:text="${task.taskName}"></td>-->
-<!--                <td th:text="${task.taskDueDate}"></td>-->
-<!--                <td th:text="${task.taskResponsibility}"></td>-->
-<!--                <td>-->
-<!--                    <form th:action="@{'/employee/' + ${employee.recruitId} + '/email/' + ${task.taskId}}" method="post">-->
-<!--                        <button type="submit">Send Email Reminder</button>-->
-<!--                    </form></td>-->
-<!--                <td>-->
-<!--                    <form th:action="@{'/employee/' + ${employee.recruitId} + '/remove-task/' + ${task.taskId}}" method="post">-->
 
-<!--                        <button type="submit" class="btn-complete">Mark as Complete</button>-->
-<!--                    </form>-->
-<!--                </td>-->
-<!--            </tr>-->
-            <tr>
-                <td>Sign Contract</td>
-                <td class="overdue">01/01/2020</td>
-                <td>Recruitment</td>
-                <td>
-                    <button type="submit" class="btn btn-info">Send Email Reminder</button>
-                <td>
-                    <button type="submit" class="btn btn-success">Mark as Complete</button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-
-        <br>
-        <h3>To be completed</h3>
-        <table class="table table-striped">
-            <thead>
-            <th scope="col">Task Name</th>
-            <th scope="col">Task Due Date</th>
-            <th scope="col">Responsibility</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>Send Laptop</td>
-                <td>01/01/2020</td>
-                <td>IT Department</td>
-                <td>
-                    <button type="submit" class="btn btn-info">Send Email Reminder</button>
-                <td>
-                    <button type="submit" class="btn btn-success">Mark as Complete</button>
-                </td>
-            </tr>
-            <tr>
-                <td>Sign Contract</td>
-                <td>01/01/2020</td>
-                <td>Recruitment</td>
-                <td>
-                    <button type="submit" class="btn btn-info">Send Email Reminder</button>
-                <td>
-                    <button type="submit" class="btn btn-success">Mark as Complete</button>
-                </td>
+            <tr th:each="task : ${tasks}">
+                <td th:text="${task.taskName}"></td>
+                <td th:text="${task.taskDueDate}"></td>
+                <td th:text="${task.taskResponsibility}"></td>
             </tr>
 
             </tbody>

@@ -35,8 +35,8 @@
             <td>
                 <form th:action="@{'/employee/' + ${employee.recruitId} + '/email/' + ${task.taskId}}" method="post">
                     <button type="submit" class="btn btn-info">Send Email Reminder</button>
-                </form></td>
-
+                </form>
+            </td>
 
             <td>
                 <form th:action="@{'/employee/' + ${employee.recruitId} + '/remove-task/' + ${task.taskId}}" method="post">
