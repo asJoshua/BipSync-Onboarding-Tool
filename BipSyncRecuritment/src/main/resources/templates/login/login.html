@@ -30,6 +30,21 @@
 
             <form method="post"  role="login-form"  th:action="@{/login}"  th:object="${user}">
 
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input th:field="*{username}"  class="form-control" aria-describedby="emailHelp" type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="login-form-group">
+                <label for="password">Password</label>
+                <input th:field="*{password}"  class="form-control" type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+<div class="btn-for-login">
+            <button type="submit"  class="login-btn">Login</button>
+</div>
+        </form>
+        <span>Forgot Password? <a href="/"
+                                  th:href="@{/forgotPassword}">
+                                Forgot Password</a></span>
                 <div class="mb-3 p-2">
                     <label for="username" class="form-label">Username</label>
                     <input th:field="*{username}"  class="form-control" aria-describedby="emailHelp" type="text" id="username" name="username" placeholder="Enter your username" required>

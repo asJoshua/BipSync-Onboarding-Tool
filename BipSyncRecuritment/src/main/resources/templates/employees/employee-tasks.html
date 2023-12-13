@@ -8,6 +8,9 @@
 </head>
 <body>
 <h1 class="task-employee-name" th:text="${employee.firstName}+'s' + ' ' + 'Tasks'"></h1>
+<div id="emailMessage" class="alert alert-success" th:if="${emailMessage}">
+    <p th:text="${emailMessage}"></p>
+</div>
 
 <table class="table table-striped">
     <thead>
@@ -17,6 +20,7 @@
 
         <th scope="col"> <button id="addNewTaskButton" data-toggle="modal" data-target="#myModal">Add a Task</button></th>
     </tr>
+
     </thead>
     <tbody>
     <tr th:each="task, rowStat : ${employee.tasksOrderByDueDate}">
@@ -27,16 +31,21 @@
             <form th:action="@{'/employee/' + ${employee.recruitId} + '/email/' + ${task.taskId}}" method="post">
                 <button type="submit">Send Email Reminder</button>
             </form></td>
+
+
         <td>
             <form th:action="@{'/employee/' + ${employee.recruitId} + '/remove-task/' + ${task.taskId}}" method="post">
 
                 <button type="submit" class="btn-complete">Mark as Complete</button>
             </form>
+
+
         </td>
 
     </tr>
 
     </tbody>
+
 </table>
 
 

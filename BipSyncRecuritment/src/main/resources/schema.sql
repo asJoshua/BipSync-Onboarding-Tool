@@ -1,3 +1,4 @@
+drop table if exists  password_reset_token;
 drop table if exists user_roles;
 drop table if exists users;
 drop table if exists completed_tasks;
@@ -9,6 +10,7 @@ create table if not exists users
 (
     id bigint AUTO_INCREMENT PRIMARY KEY,
     username varchar(500)  not null,
+    user_email varchar(200) not null,
     password varchar(500) not null,
     user_first_name varchar(50) not null,
     user_last_name varchar(50) not null
@@ -59,4 +61,12 @@ create table completed_tasks(
     primary key (c_recruit_id,c_task_id),
     foreign key (c_recruit_id) references recruits(recruit_id),
     foreign key (c_task_id) references tasks(task_id)
+);
+
+CREATE TABLE password_reset_token (
+                                    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+                                    token VARCHAR(255) NOT NULL,
+                                    expiry_date DATETIME NOT NULL,
+                                    pass_user_id BIGINT NOT NULL,
+                                    FOREIGN KEY (pass_user_id) REFERENCES users(id)
 );

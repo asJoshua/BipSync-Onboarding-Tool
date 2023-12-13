@@ -2,7 +2,7 @@ package com.BipSyncRecuritment.Security;
 
 import com.BipSyncRecuritment.login.UserLoginDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -32,8 +32,8 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http.csrf().disable().authorizeHttpRequests()
-                .requestMatchers(   "/newRecruits", "/newRecruit/**","/form", "/images/**", "/css/**", "/home","/styles/**","/viewEmployees","/employee/{recruitId}","/employee/{recruitId}/add-task","/employee/{recruitId}/remove-task/{taskId}","/employee/{recruitId}/completed-tasks", "/employee/{recruitId}/email/{taskId}").permitAll()
-                .requestMatchers("/employee","/employee/{recruitId}/details").hasRole("ADMIN")
+                .requestMatchers(   "/employee/{recruitId}/completed-tasks","/employee", "/images/**", "/css/**", "/home","/styles/**","/viewEmployees","/employee/{recruitId}", "/employee/{recruitId}/email/{taskId}","/forgotPassword","/resetPassword","/resetPassword/{token}","/403").permitAll()
+                .requestMatchers("/employee/{recruitId}/remove-task/{taskId}","/employee/{recruitId}/add-task","/employee/{recruitId}/details","/registerStaff","/newRecruits", "/newRecruit/**","/form").hasRole("ADMIN")
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -44,7 +44,11 @@ public class SecurityConfig {
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login?logout").permitAll();
+                .logoutSuccessUrl("/login?logout").permitAll()
+                .and()
+                .exceptionHandling().accessDeniedPage("/403");
+
+
 
         return http.build();
 
