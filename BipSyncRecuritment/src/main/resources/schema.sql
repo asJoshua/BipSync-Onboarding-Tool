@@ -1,6 +1,8 @@
 drop table if exists  password_reset_token;
 drop table if exists user_roles;
 drop table if exists users;
+drop table if exists staffinfo;
+
 drop table if exists completed_tasks;
 drop table if exists employee_tasks;
 drop table if exists tasks;
@@ -62,6 +64,21 @@ create table completed_tasks(
     foreign key (c_recruit_id) references recruits(recruit_id),
     foreign key (c_task_id) references tasks(task_id)
 );
+
+
+
+create table if not exists StaffInfo
+
+
+(
+    id bigint AUTO_INCREMENT PRIMARY KEY,
+    name varchar(500)  not null,
+    surname varchar(500)  not null,
+    email varchar(500)  not null,
+    role varchar(500)  not null
+)engine = InnoDB;
+
+
 
 CREATE TABLE password_reset_token (
                                     id BIGINT AUTO_INCREMENT PRIMARY KEY,

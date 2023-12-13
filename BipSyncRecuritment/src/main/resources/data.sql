@@ -40,6 +40,12 @@ values(7,'Set up Desk','2023/12/28','Facilities');
 insert into tasks(task_id, task_name, task_due_date, task_responsibility)
 values(8,'Ensure all access cards are prepared','2023/12/27','IT');
 
+insert into StaffInfo (name, surname, email, role) values ('Heather', 'Perkins', 'HeatherHR@bipsync.com', 'Hr Manager');
+insert into StaffInfo (name, surname, email, role) values ('Ben', 'Shariff', 'BenShariffIT@bipsync.com', 'IT Manager');
+insert into StaffInfo (name, surname, email, role) values ('Adrian ', 'Pennington', 'Pemmigton@bipsync.com', 'Senior software developer');
+insert into StaffInfo (name, surname, email, role) values ('Chau', 'mai', 'ChaiMai@bipsync.com', 'Marketing Director');
+insert into StaffInfo (name, surname, email, role) values ('Bill', 'Smith', 'BillSmithData@bipsync.com', 'Data Analyst');
+insert into StaffInfo (name, surname, email, role) values ('Luke', 'Jones', 'LukeJonesDevOps@bipsync.com', 'Dev ops');
 
 insert into employee_tasks(t_recruit_id, t_task_id) values(1,1);
 insert into employee_tasks(t_recruit_id, t_task_id) values(4,2);
@@ -48,7 +54,3 @@ insert into employee_tasks(t_recruit_id, t_task_id) values(2,4);
 insert into employee_tasks(t_recruit_id, t_task_id) values(5,5);
 insert into employee_tasks(t_recruit_id, t_task_id) values(3,6);
 insert into employee_tasks(t_recruit_id, t_task_id) values(4,7);
-
-
-
-

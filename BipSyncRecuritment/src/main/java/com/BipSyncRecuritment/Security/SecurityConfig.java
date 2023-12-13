@@ -2,7 +2,7 @@ package com.BipSyncRecuritment.Security;
 
 import com.BipSyncRecuritment.login.UserLoginDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -30,10 +30,15 @@ public class SecurityConfig {
     @SuppressWarnings("removal")
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
         http.csrf().disable().authorizeHttpRequests()
                 .requestMatchers(   "/employee/{recruitId}/completed-tasks","/employee", "/images/**", "/css/**", "/home","/styles/**","/viewEmployees","/employee/{recruitId}", "/employee/{recruitId}/email/{taskId}","/forgotPassword","/resetPassword","/resetPassword/{token}","/403").permitAll()
                 .requestMatchers("/employee/{recruitId}/remove-task/{taskId}","/employee/{recruitId}/add-task","/employee/{recruitId}/details","/registerStaff","/newRecruits", "/newRecruit/**","/form").hasRole("ADMIN")
+
+                .requestMatchers( "/images/**", "/css/**", "/home", "/home/newRecruit","/styles/**","/viewEmployees","/employee/{recruitId}","/employee/{recruitId}/add-task","/employee/{recruitId}/remove-task/{taskId}","/employee/{recruitId}/completed-tasks").permitAll()
+                .requestMatchers("/employee").hasRole("ADMIN")
+
+                .requestMatchers("/dash","/styles/**","/Staff","/Staff/edit/{id}","/DeleteStaff/{id}").permitAll()
+
                 .and()
                 .formLogin()
                 .loginPage("/login")
