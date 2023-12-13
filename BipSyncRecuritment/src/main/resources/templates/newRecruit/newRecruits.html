@@ -11,20 +11,27 @@
       <div th:replace="~{fragments/header :: header}"/>
     </div>
 
-    <table class="table">
-      <thead>
-      <tr>
-        <th scope="col">First Name</th>
-        <th scope="col">Last Name</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr th:each="newRecruit : ${newRecruits}">
-        <td th:text="${newRecruit.firstName}"></td>
-        <td th:text="${newRecruit.lastName}"></td>
-      </tr>
-      </tbody>
-    </table>
+    <div class="content" style="margin-left: 250px;">
+      <h2>New Recruits</h2>
+      <br>
+      <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Position</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="newRecruit : ${newRecruits}">
+          <td th:text="${newRecruit.firstName}"></td>
+          <td th:text="${newRecruit.lastName}"></td>
+          <td th:text="${newRecruit.position}"></td>
+          <td><a th:href="@{/newRecruit/{id}(id=${newRecruit.recruitId})}"class="btn btn-primary">View Details</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
     <div th:replace="fragments/header :: scripts"></div>
   </body>
 </html>

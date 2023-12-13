@@ -7,9 +7,18 @@
     <link rel="stylesheet" href="/css/main.css">
 </head>
 
-<body>
-<div id="header">
-    <div th:replace="~{fragments/header :: header}"/>
+<body class="form-body">
+<button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+<div class="sidebar" style="background-image: none; background-color: white;">
+    <div class="bg-dark p-4">
+        <h5 class="text-white h4">Bipsync</h5>
+        <span class="text-muted">Onboarding Tool</span>
+    </div>
+    <a th:href="@{/home}"  class="nav-link" style="color: black;">Checklist</a>
+    <a th:href="@{/newRecruit/add}" class="nav-link" style="color: black;">Add New Recruit</a>
+    <a th:href="@{/newRecruits}"  class="nav-link" style="color: black;">View New Recruits</a>
+    <a th:href="@{/Staff}"  class="nav-link" style="color: black;">View Current Staff</a>
 </div>
 
 <section>

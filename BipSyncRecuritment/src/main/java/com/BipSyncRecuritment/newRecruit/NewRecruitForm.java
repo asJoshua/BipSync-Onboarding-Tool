@@ -46,6 +46,6 @@ public class NewRecruitForm {
     private String emergencyContactPhoneNumber;
 
     public NewRecruitForm() {
-        this(0L, "", "", null, "", "", "", "", "", null, "", "");
+        this(0L, "", "", "", "", "", "", "", "", "", "", "");
     }
 }

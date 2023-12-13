@@ -42,7 +42,7 @@ public class NewRecruitFormController {
     public ModelAndView addNewRecruit(@PathVariable(value = "recruitId", required = false) Long recruitId, @Valid @ModelAttribute("newRecruit") NewRecruitForm newRecruit){
         NewRecruit newNewRecruit = new NewRecruit(newRecruit.getRecruitId(), newRecruit.getFirstName(), newRecruit.getLastName(), newRecruit.getDateOfBirth(), newRecruit.getPhoneNumber(), newRecruit.getPassportNumber(), newRecruit.getNationalInsuranceNumber(), newRecruit.getEmail(), newRecruit.getPosition(), newRecruit.getDateOfHire(), newRecruit.getEmergencyContactName(), newRecruit.getEmergencyContactPhoneNumber());
         newRecruitService.save(newNewRecruit);
-        ModelAndView modelAndView = new ModelAndView("redirect:/home");
+        ModelAndView modelAndView = new ModelAndView("redirect:/newRecruits");
         return modelAndView;
     }
 
