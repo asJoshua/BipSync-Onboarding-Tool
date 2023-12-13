@@ -45,7 +45,7 @@ public class EmployeeController {
     @GetMapping("/employee/{recruitId}/details")
     public ModelAndView getEmployeeDetails(@PathVariable Long recruitId, Model model) {
         Employee employees = employeeService.getEmployeeById(recruitId);
-        ModelAndView modelAndView = new ModelAndView("employees/employee-details");
+        ModelAndView modelAndView = new ModelAndView("newRecruit/newRecruitDetails");
         modelAndView.addObject("employees", employees);
         return modelAndView;
     }

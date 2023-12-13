@@ -10,17 +10,17 @@ values(1,'ADMIN');
 
 
 insert into recruits(first_name, last_name, date_of_birth, phone_number, passport_number, national_insurance_number, email, position, date_of_hire, emergency_contact_name, emergency_contact_phone)
-values ('Emily', 'Thompson', '1999/02/17', '0778823744', '123456789', 'AD12456Z', 'ethompson@bipsync.com', 'Software Engineer', '2020/01/02', 'Beatriz', '07654876879');
+values ('Emily', 'Thompson', '17-02-1999', '0778823744', '123456789', 'AD12456Z', 'ethompson@bipsync.com', 'Software Engineer', '02-01-2020', 'Beatriz', '07654876879');
 
 insert into recruits(first_name, last_name, date_of_birth, phone_number, passport_number, national_insurance_number, email, position, date_of_hire, emergency_contact_name, emergency_contact_phone)
-values ('Ethan', 'Rodriguez', '1996/04/27', '07876145523', '876543657', 'AB876590Z', 'erodriguez@bipsync.com', 'Data Analyst', '2020/03/12', 'Jonny', '09898765431');
+values ('Ethan', 'Rodriguez', '27-04-1996', '07876145523', '876543657', 'AB876590Z', 'erodriguez@bipsync.com', 'Data Analyst', '12-03-2020', 'Jonny', '09898765431');
 
 insert into recruits(first_name, last_name, date_of_birth, phone_number, passport_number, national_insurance_number, email, position, date_of_hire, emergency_contact_name, emergency_contact_phone)
-values ('Ava', 'Patel', '2000/08/03', '07943567892', '768798678', 'AL097869C', 'apatel@bipsync.com', 'Data Analyst', '2021/05/23', 'Liam', '07898765567');
+values ('Ava', 'Patel', '03-08-2000', '07943567892', '768798678', 'AL097869C', 'apatel@bipsync.com', 'Data Analyst', '23-05-2021', 'Liam', '07898765567');
 insert into recruits(first_name, last_name, date_of_birth, phone_number, passport_number, national_insurance_number, email, position, date_of_hire, emergency_contact_name, emergency_contact_phone)
-values ('Noah', 'Davis', '1998/04/03', '07957897895', '458798698', 'AW092869B', 'ndavis@bipsync.com', 'Data Analyst', '2022/06/12', 'Sarah', '07657465812');
+values ('Noah', 'Davis', '03-04-1998', '07957897895', '458798698', 'AW092869B', 'ndavis@bipsync.com', 'Data Analyst', '12-06-2022', 'Sarah', '07657465812');
 insert into recruits(first_name, last_name, date_of_birth, phone_number, passport_number, national_insurance_number, email, position, date_of_hire, emergency_contact_name, emergency_contact_phone)
-values ('Harper', 'Mitchell', '1997/10/18', '07865434545', '765678932', 'JW134678D', 'hmitchell@bipsync.com', 'Software Engineer', '2023/07/14', 'Josh', '079345789');
+values ('Harper', 'Mitchell', '18-10-1997', '07865434545', '765678932', 'JW134678D', 'hmitchell@bipsync.com', 'Software Engineer', '14-07-2023', 'Josh', '079345789');
 
 
 insert into tasks(task_id, task_name, task_due_date, task_responsibility)
