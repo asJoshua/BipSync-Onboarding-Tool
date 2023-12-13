@@ -21,7 +21,6 @@ public class Employee {
     private String firstName;
     @NotEmpty(message = "Last name cannot be empty")
     private String lastName;
-
     private LocalDate dateOfBirth;
     @NotEmpty(message = "Phone number cannot be empty")
     private String phoneNumber;
@@ -43,8 +42,6 @@ public class Employee {
     @Column(name = "emergency_contact_phone")
     private String emergencyContactPhoneNumber;
 
-
-
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "employee_tasks",
@@ -56,7 +53,6 @@ public class Employee {
     public Set<Task> getTasks() {
         return tasks;
     }
-
 
     @ElementCollection
     @CollectionTable(name = "completed_tasks",
@@ -70,11 +66,9 @@ public class Employee {
                 .collect(Collectors.toList());
     }
 
-
     public void setRecruitId(Long id) {
         this.recruitId = id;
     }
-
     public Long getRecruitId() {
         return recruitId;
     }

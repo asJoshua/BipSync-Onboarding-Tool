@@ -27,7 +27,7 @@
         <li th:text="${'Emergency Contact Number: ' + employee.emergencyContactPhoneNumber}" class="list-group-item"></li>
       </ul>
     </div>
-    <button th:href="@{/employee/{id}/edit(id=${employee.recruitId})}" class="btn btn-info">Edit Details</button>
+    <a th:href="@{/employee/{id}/edit(id=${employee.recruitId})}" class="btn btn-info">Edit Details</a>
   </div>
   <div th:replace="~{fragments/header :: scripts}"></div>
 </body>
