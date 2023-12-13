@@ -5,33 +5,39 @@
     <meta charset="UTF-8">
     <title>Home</title>
     <link th:replace="~{fragments/header :: bootstrap-css}"/>
-    <link rel="stylesheet" th:href="@{/css/home.css}" />
+
+    <link rel="stylesheet" href="/css/main.css">
 
 <body>
     <div id="header">
         <div th:replace="~{fragments/header :: header}"/>
     </div>
 
-    <section id="bg-wrapper">
-        <figure id="txt-wrapper" class="d-flex flex-column justify-content-center">
-            <h1 id="company-name" class="text-center">BipSync <br> Onboarding</h1>
-        </figure>
-    </section>
+    <div class="content" style="margin-left: 250px;">
+        <h1>Task Checklist</h1>
+        <p>Tasks to be completed in chronological order.</p>
+        <br>
+        <h3>To be Completed</h3>
+        <table class="table table-striped">
+            <thead>
+                <th scope="col">Task Name</th>
+                <th scope="col">Task Due Date</th>
+                <th scope="col">Responsibility</th>
+                </tr>
+            </thead>
+            <tbody>
 
-    <section id="buttons" class="container btn-container">
-        <button type="button" class="action-btn">
-            <a href="#">New Recruit</a>
-        </button>
-        <button type="button" class="action-btn">
-            <a th:href="@{/employee}">Current <br> Employees</a>
-        </button>
-        <button type="button" class="action-btn">
-            <a href="#">Staff Team</a>
-        </button>
-    </section>
+            <tr th:each="task : ${tasks}">
+                <td th:text="${task.taskName}"></td>
+                <td th:text="${task.taskDueDate}"></td>
+                <td th:text="${task.taskResponsibility}"></td>
+            </tr>
 
-    <div id="footer">
-        <div th:replace="~{fragments/footer :: footer}"/>
+            </tbody>
+        </table>
+
     </div>
+
+    <div th:replace="~{fragments/header :: scripts}" ></div>
 </body>
 </html>

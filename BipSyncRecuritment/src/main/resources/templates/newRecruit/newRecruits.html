@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <title>Title</title>
+      <link th:replace="~{fragments/header :: bootstrap-css}"/>
+      <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body>
+    <div id="header">
+      <div th:replace="~{fragments/header :: header}"/>
+    </div>
+
+    <div class="content" style="margin-left: 250px;">
+      <h2>New Recruits</h2>
+      <br>
+      <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Position</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee : ${employees}">
+          <td th:text="${employee.firstName}"></td>
+          <td th:text="${employee.lastName}"></td>
+          <td th:text="${employee.position}"></td>
+          <td><a th:href="@{/employee/{id}/details(id=${employee.recruitId})}"class="btn btn-primary">View Details</a></td>
+          <td><a th:href="@{/employee/{id}(id=${employee.recruitId})}"class="btn btn-info">View Tasks</a></td>
+          <td><a th:href="@{/employee/{id}/completed-tasks(id=${employee.recruitId})}"class="btn btn-success">Completed Tasks</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div th:replace="~{fragments/header :: scripts}"></div>
+  </body>
+</html>

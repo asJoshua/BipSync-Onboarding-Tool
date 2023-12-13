@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Error</title>
+</head>
+<body>
+<h1>You don't have rights to access this page.</h1>
+
+<form th:action="@{/logout}" th:method="post">
+  <input type="submit" value="logout"/>
+  <input name="${_csrf.parameterName}"
+         type="hidden"
+         value="${_csrf.token}"/>
+</form>
+</body>
+</html>

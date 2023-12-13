@@ -10,6 +10,11 @@
 </head>
 <body>
 
+
+<div  class="alert alert-success" th:if="${message}">
+    <p th:text="${message}"></p>
+</div>
+
 <h1 class ="table-title">Current Employees</h1>
 
 
@@ -28,11 +33,24 @@
         <td th:text="${employee.lastName}"></td>
         <td th:text="${employee.position}"></td>
         <td th:text="${employee.email}"></td>
+        <td><a th:href="@{/employee/{id}/details(id=${employee.recruitId})}"class="btn btn-primary">View Details</a></td>
         <td><a th:href="@{/employee/{id}(id=${employee.recruitId})}"class="btn btn-primary">View Tasks</a></td>
         <td><a th:href="@{/employee/{id}/completed-tasks(id=${employee.recruitId})}"class="btn btn-primary">View Completed Tasks</a></td>
+        <td><a th:href="@{/RemoveEmployee/{id}(id=${employee.recruitId})}"class="btn btn-danger"  th:onclick="'javascript:confirmDelete(' + ${employee.recruitId} + ');'">Remove</a></td>
     </tr>
     </tbody>
 </table>
 
 </body>
+
+
+<script th:inline="javascript">
+    function confirmDelete(recruitId) {
+        var result = confirm("Are you sure you want to delete this Employee?");
+        if (result) {
+
+            window.location.href = "/RemoveEmployee" + recruitId;
+        }
+    }
+</script>
 </html>

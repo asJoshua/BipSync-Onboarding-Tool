@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link th:replace="~{fragments/header :: bootstrap-css}"/>
+  <link rel="stylesheet" href="/css/main.css">
+  <title>Edit Staff</title>
+</head>
+<body>
+<div id="header">
+  <div th:replace="~{fragments/header :: header}"/>
+</div>
+
+<div class="content" style="margin-left: 250px">
+  <h2 class="form-title">Edit Staff Information</h2>
+
+  <form th:action="@{/Staff/edit/{id}(id=${staff.id})}" th:object="${staff}" method="post" class="container form-ctn">
+    <input type="hidden" th:field="*{id}"/>
+
+    <div class="d-flex justify-content-center">
+      <div class="mb-3 p-2">
+        <label for="name" class="form-label">Name:</label>
+        <input type="text" id="name" th:field="*{name}" class="form-control" required/>
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="error"></span>
+      </div>
+
+      <div class="mb-3 p-2">
+        <label for="lastname" class="form-label">LastName:</label>
+        <input type="text" id="lastname" class="form-control" th:field="*{lastName}" required/>
+        <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="error"></span>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <div class="mb-3 p-2">
+        <label for="email" class="form-label">Email:</label>
+        <input type="email" id="email" class="form-control" th:field="*{email}" required/>
+        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error"></span>
+      </div>
+
+      <div class="mb-3 p-2">
+        <label for="role" class="form-label">Role:</label>
+        <input type="text" id="role" class="form-control" th:field="*{role}" required/>
+        <span th:if="${#fields.hasErrors('role')}" th:errors="*{role}" class="error"></span>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center mb-3">
+      <button type="submit" class="btn btn-success">Save Changes</button>
+    </div>
+
+    <div class="d-flex justify-content-center ">
+      <a th:href="@{/Staff}" class="btn btn-primary">Back</a>
+    </div>
+  </form>
+
+
+</div>
+
+<div th:replace="~{fragments/header :: scripts}"></div>
+</body>
+</html>

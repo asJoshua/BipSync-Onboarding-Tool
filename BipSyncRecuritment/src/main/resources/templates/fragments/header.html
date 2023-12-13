@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html xmlns:sec="http://www.w3.org/1999/xhtml">
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <link th:fragment="bootstrap-css"
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-
-                9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
-          crossorigin="anonymous">
-</head>
+    <head>
+        <!-- Link to Bootstrap CSS file -->
+        <link th:fragment="bootstrap-css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
 
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2A2731;" th:fragment="header">
-    <div class="container">
-        <a class="navbar-brand" href="#">
-            <img src="/images/bipsync_logo.jpg" alt="" width="35" height="35" class="d-inline-block">
-            bipsync
-        </a>
-        <div class="d-flex">
-            <div>
-                <ul class="navbar-nav mr-auto m-3">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only"></span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">New Recruit</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Current Staff</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="m-3">
+    <body>
+        <div th:fragment="header">
+            <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+            <div class="sidebar" style="left: 0px;">
+                <div class="bg-dark p-4">
+                    <h5 class="text-white h4">bipsync</h5>
+                    <span class="text-muted">Onboarding Tool</span>
+                </div>
+                <a th:href="@{/home}" class="nav-link">Checklist</a>
+                <a th:href="@{/newRecruit/add}" class="nav-link">Add New Recruit</a>
+                <a th:href="@{/newRecruits}" class="nav-link">View New Recruits</a>
+                <a th:href="@{/Staff}" class="nav-link">View Current Staff</a>
+                <a th:href="@{/registerStaff}" class="nav-link">Register user</a>
                 <span sec:authorize="isAuthenticated" class="login-btn"><a th:href="@{/logout}">Logout</a></span>
+
             </div>
         </div>
-    </div>
-</nav>
-</body>
+
+        <div th:fragment="scripts">
+            <!-- Link to Bootstrap JavaScript file (Popper.js is required for Bootstrap to work properly) -->
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"></script>
+
+            <script>
+                function toggleSidebar() {
+                    const sidebar = document.querySelector('.sidebar');
+                    const content = document.querySelector('.content');
+
+                    sidebar.style.left = sidebar.style.left === '0px' ? '-250px' : '0';
+                    content.style.marginLeft = content.style.marginLeft === '250px' ? '0' : '250px';
+                }
+            </script>
+        </div>
+    </body>
 </html>

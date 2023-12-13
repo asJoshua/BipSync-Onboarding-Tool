@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/main.css" />
+    <meta charset="UTF-8">
+    <title>Employee Details</title>
+</head>
+<body>
+
+<div  th:each="employee : ${employees}"class="card  mx-auto" style="width: 20rem;">
+  <a th:href="@{/employee/{id}/edit(id=${employee.recruitId})}"class="btn btn-primary">Edit Details</a>
+  <div class="card-body">
+    <h5 th:text="${employee.firstName}+'s' + ' ' + 'Details'"  class="card-title"></h5>
+    <ul class="list-group list-group-flush">
+      <li th:text="${'First Name: ' + employee.firstName}"class="list-group-item"></li>
+      <li th:text="${'Last Name: ' + employee.lastName}" class="list-group-item"></li>
+      <li th:text="${'Date of Birth: ' + employee.dateOfBirth}" class="list-group-item"></li>
+      <li th:text="${'Position:' + employee.position}" class="list-group-item"></li>
+      <li th:text="${'Email:' +  employee.email}" class="list-group-item"></li>
+      <li th:text="${'Phone Number: ' + employee.phoneNumber}" class="list-group-item"></li>
+      <li th:text="${'NI Number: ' +  employee.nationalInsuranceNumber}" class="list-group-item"></li>
+      <li th:text="${'Date of Hire: ' + employee.dateOfHire}" class="list-group-item"></li>
+      <li th:text="${'Emergency Contact: ' + employee.emergencyContactName}" class="list-group-item"></li>
+      <li th:text="${'Emergency Contact Number: ' + employee.emergencyContactPhoneNumber}" class="list-group-item"></li>
+    </ul>
+  </div>
+  <div class="card-body">
+    <a th:href="@{/employee}"class="btn btn-secondary">Go Back</a></td>
+  </div>
+</div>
+
+</body>
+</html>

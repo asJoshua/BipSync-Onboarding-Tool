@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Recruit Form</title>
+    <link th:replace="~{fragments/header :: bootstrap-css}"/>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body class="form-body">
+<button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+<div class="sidebar" style="background-image: none; background-color: white;">
+    <div class="bg-dark p-4">
+        <h5 class="text-white h4">Bipsync</h5>
+        <span class="text-muted">Onboarding Tool</span>
+    </div>
+    <a th:href="@{/home}"  class="nav-link" style="color: black;">Checklist</a>
+    <a th:href="@{/newRecruit/add}" class="nav-link" style="color: black;">Add New Recruit</a>
+    <a th:href="@{/newRecruits}"  class="nav-link" style="color: black;">View New Recruits</a>
+    <a th:href="@{/Staff}"  class="nav-link" style="color: black;">View Current Staff</a>
+    <a th:href="@{/registerStaff}" class="nav-link" style="color: black;">Register user</a>
+</div>
+
+<section>
+
+    <div class="content">
+
+        <form  th:method="post" th:object="${newRecruit}" class="container form-ctn">
+            <h2 class="form-title">New Recruit</h2>
+
+            <input th:field="*{recruitId}" th:value="0" type="hidden"/>
+
+            <div class="d-flex justify-content-center">
+                <div class="mb-3 p-2">
+                    <label for="firstName" th:for="*{firstName}" class="form-label">First Name:</label>
+                    <input type="text" class="form-control" id="firstName" th:field="*{firstName}" name="firstName" required>
+                </div>
+
+                <div class="mb-3 p-2">
+                    <label for="lastName" th:for="*{lastName}" class="form-label">Last Name:</label>
+                    <input type="text" class="form-control" th:field="*{lastName}" id="lastName" name="lastName" required>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <div class="mb-3 p-2">
+                    <label for="dateOfBirth" th:for="*{dateOfBirth}" class="form-label">Date of Birth:</label>
+                    <input type="text" class="form-control" id="dateOfBirth" th:field="*{dateOfBirth}" name="dateOfBirth"  required>
+                </div>
+
+                <div class="mb-3 p-2">
+                    <label for="phoneNumber" th:for="*{phoneNumber}" class="form-label">Phone Number:</label>
+                    <input type="text" class="form-control" id="phoneNumber" th:field="*{phoneNumber}" name="phoneNumber" required>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <div class="mb-3 p-2">
+                    <label for="passportNumber" th:for="*{passportNumber}" class="form-label">Passport Number:</label>
+                    <input type="text" class="form-control" id="passportNumber" th:field="*{passportNumber}" name="passportNumber" required>
+                </div>
+
+                <div class="mb-3 p-2">
+                    <label for="nationalInsurnaceNumber" th:for="*{nationalInsuranceNumber}" class="form-label">National Insurance Number:</label>
+                    <input type="text" class="form-control" id="nationalInsurnaceNumber" th:field="*{nationalInsuranceNumber}" name="nationalInsuranceNumber" required>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <div class="mb-3 p-2">
+                    <label for="email" th:for="*{email}" class="form-label">Email:</label>
+                    <input type="email" class="form-control" id="email" th:field="*{email}" name="email" placeholder="name@example.com" style="width: 428px;" required>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <div class="mb-3 p-2">
+                    <label for="position" th:for="*{position}" class="form-label">Position:</label>
+                    <input type="text" class="form-control" id="position" th:field="*{position}" name="position"  required>
+                </div>
+
+                <div class="mb-3 p-2">
+                    <label for="dateOfHire" th:for="*{dateOfHire}" class="form-label">Date of Hire:</label>
+                    <input type="text" class="form-control" id="dateOfHire" th:field="*{dateOfHire}" name="dateOfHire" required>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center">
+                <div class="mb-3 p-2">
+                    <label for="emergencyContactName" th:for="*{emergencyContactName}" class="form-label">Emergency Contact Name:</label>
+                    <input type="text" class="form-control" id="emergencyContactName" th:field="*{emergencyContactName}" name="emergencyContactName" required>
+                </div>
+
+                <div class="mb-3 p-2">
+                    <label for="emergencyContactPhone" th:for="*{emergencyContactPhoneNumber}" class="form-label">Emergency Contact Phone:</label>
+                    <input type="text" class="form-control" id="emergencyContactPhone" th:field="*{emergencyContactPhoneNumber}" name="emergencyContactPhone" required>
+                </div>
+            </div>
+
+
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-danger">Submit</button>
+            </div>
+        </form>
+    </div>
+
+</section>
+<div th:replace="~{fragments/header :: scripts}"></div>
+</body>
+</html>

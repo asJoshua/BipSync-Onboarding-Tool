@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 
@@ -30,11 +31,10 @@ public class SecurityConfig {
     @SuppressWarnings("removal")
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-
         http.csrf().disable().authorizeHttpRequests()
-
-                .requestMatchers( "/images/**", "/css/**", "/home", "/home/newRecruit","/styles/**","/viewEmployees","/employee/{recruitId}","/employee/{recruitId}/add-task","/employee/{recruitId}/remove-task/{taskId}","/employee/{recruitId}/completed-tasks").permitAll()
-                .requestMatchers("/employee").hasRole("ADMIN")
+                .requestMatchers(   "/employee/{recruitId}/completed-tasks","/employee", "/images/**", "/css/**", "/home","/styles/**","/viewEmployees","/employee/{recruitId}", "/employee/{recruitId}/email/{taskId}","/forgotPassword","/resetPassword","/resetPassword/{token}","/403").permitAll()
+                .requestMatchers("/employee/{recruitId}/remove-task/{taskId}","/employee/{recruitId}/add-task","/employee/{recruitId}/details","/registerStaff","/newRecruits", "/newRecruit/**","/form", "/employee/{recruitId}/edit").hasRole("ADMIN")
+                .requestMatchers("/Staff","/Staff/edit/{id}","/DeleteStaff/{id}").permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -45,7 +45,11 @@ public class SecurityConfig {
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
-                .logoutSuccessUrl("/login?logout").permitAll();
+                .logoutSuccessUrl("/login?logout").permitAll()
+                .and()
+                .exceptionHandling().accessDeniedPage("/403");
+
+
 
         return http.build();
 
