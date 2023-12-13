@@ -8,11 +8,12 @@ body{
     align-items: center;
     height: 100vh;
 }
+
 .login-form-container{
     background-color: #fff;
     padding: 30px;
     margin: 10px;
-    width: 400px;
+    width: 500px;
     border-radius: 20px;
 }
 .login-title{
@@ -39,39 +40,10 @@ body{
     background-color: #f5f5f5;
     border: 0;
 }
-.forgot-pass-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 75vh;
-
-}
-
-.forgot-pass-form-container{
-    background-color: #fff;
-    padding: 30px;
-    margin: 10px;
-    width: 400px;
-}
 
 .form-group {
     margin-bottom: 20px;
 }
-
-
-input[type="text"],
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 14px;
-}
-
-
-
 
 .btn-forgot-pass{
     text-align: center;
@@ -89,7 +61,6 @@ input[type="password"] {
     justify-content: center;
     align-items: center;
     height: 75vh;
-
 }
 
 .rest-form-container{
@@ -109,13 +80,6 @@ input[type="password"] {
     font-weight: bold;
 }
 
-.email{
-    font-weight: bold;
-}
-.pass{
-    font-weight: bold;
-}
-
 .confirm-pass{
     font-weight: bold;
 }
@@ -125,13 +89,6 @@ input[type="password"] {
     justify-content: center;
     align-items: center;
     height: 100vh;
-}
-
-.register-form-container{
-    background-color: #fff;
-    padding: 30px;
-    margin: 10px;
-    width: 400px;
 }
 
 .register-btn{
