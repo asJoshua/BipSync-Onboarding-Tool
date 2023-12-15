@@ -33,7 +33,6 @@ public class ViewStaffTest {
         String content = result.getResponse().getContentAsString();
         System.out.println(content);
 
-        // Add more assertions as needed for your specific staff information
         assertTrue(content.contains("Heather"));
         assertTrue(content.contains("Perkins"));
         assertTrue(content.contains("Hr Manager"));

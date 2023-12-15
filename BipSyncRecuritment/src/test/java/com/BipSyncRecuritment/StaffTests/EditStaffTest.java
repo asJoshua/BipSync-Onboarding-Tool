@@ -23,7 +23,7 @@ public class EditStaffTest {
     private MockMvc mvc;
 
     @Autowired
-    private StaffRepository staffRepository;  // Make sure to inject the actual repository here
+    private StaffRepository staffRepository;
 
     @Test
     @WithMockUser(username = "admin", password = "admin", roles = "ADMIN")
@@ -32,16 +32,16 @@ public class EditStaffTest {
 
         MvcResult result = mvc
                 .perform(post("/Staff/edit/" + staffIdToEdit)
-                        .param("name", "AMAN")  // Change the name here
+                        .param("name", "AMAN")
                         .param("lastName", "Perkins")
                         .param("email", "HeatherPerkins@Bipsync.com")
                         .param("role", "Hr Manager"))
                 .andDo(print())
-                .andExpect(status().is3xxRedirection()) // Assuming you are redirecting after a successful edit
+                .andExpect(status().is3xxRedirection())
                 .andReturn();
 
         staffInfo editedStaff = staffRepository.getStaffInfo(staffIdToEdit);
-        assertEquals("AMAN", editedStaff.getName());  // Check the updated name here
+        assertEquals("AMAN", editedStaff.getName());
         assertEquals("Perkins", editedStaff.getLastName());
         assertEquals("HeatherPerkins@Bipsync.com", editedStaff.getEmail());
         assertEquals("Hr Manager", editedStaff.getRole());
