@@ -79,13 +79,15 @@ private UserServiceImpl userServiceImp;
     }
 
     @PostMapping("/resetPassword")
-    public String passwordResetProcess(@ModelAttribute("user") @Valid User user, BindingResult bindingResult, @RequestParam("confirm-password") String confirmPassword) {
-        if (!user.getPassword().equals(confirmPassword)) {
+    public String passwordResetProcess(@ModelAttribute("user") User user) {
+      /*  if (!user.getPassword().equals(confirmPassword)) {
             bindingResult.rejectValue("password", "error.user", "Passwords do not match");
         }
         if (bindingResult.hasErrors()) {
             return "login/resetPassword";
         }
+        */
+
         User currentUser = userRepository.findByUserEmail(user.getUserEmail());
         System.out.println("currentUser: " + currentUser);
         if (currentUser != null) {

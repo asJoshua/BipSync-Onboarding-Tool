@@ -15,18 +15,20 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotEmpty(message = "Username is required")
+  //  @NotEmpty(message = "Username is required")
     private String username;
-    @Email
-    @NotEmpty(message = "Email is required")
+    //@Email
+    //@NotEmpty(message = "Email is required")
     @Column(name = "user_email")
     private String userEmail;
-    @NotEmpty(message = "First Name is required")
+    //@NotEmpty(message = "First Name is required")
     private String userFirstName;
-    @NotEmpty(message = "Last Name is required")
+   // @NotEmpty(message = "Last Name is required")
     private String userLastName;
-    @NotEmpty(message = "Password is required")
+   // @NotEmpty(message = "Password is required")
     private String password;
+
+
 
 
 
@@ -116,5 +118,7 @@ public class User {
     public void setRoles(Set<String> roles) {
         this.roles= roles;
     }
+
+
 }
 

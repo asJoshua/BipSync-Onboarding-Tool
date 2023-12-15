@@ -23,6 +23,7 @@ insert into recruits(first_name, last_name, date_of_birth, phone_number, passpor
 values ('Harper', 'Mitchell', '18-10-1997', '07865434545', '765678932', 'JW134678D', 'hmitchell@bipsync.com', 'Software Engineer', '14-07-2023', 'Josh', '079345789');
 
 
+
 insert into tasks(task_id, task_name, task_due_date, task_responsibility)
 values(1,'Add to Company group lists and calenders','2023/12/20','HR');
 insert into tasks(task_id, task_name, task_due_date, task_responsibility)
@@ -39,6 +40,7 @@ insert into tasks(task_id, task_name, task_due_date, task_responsibility)
 values(7,'Set up Desk','2023/12/28','Facilities');
 insert into tasks(task_id, task_name, task_due_date, task_responsibility)
 values(8,'Ensure all access cards are prepared','2023/12/27','IT');
+
 
 insert into StaffInfo (name, surname, email, role) values ('Heather', 'Perkins', 'HeatherHR@bipsync.com', 'Hr Manager');
 insert into StaffInfo (name, surname, email, role) values ('Ben', 'Shariff', 'BenShariffIT@bipsync.com', 'IT Manager');
