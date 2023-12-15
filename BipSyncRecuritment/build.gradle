@@ -32,6 +32,13 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-mail'
 
+	// For Structurizr
+	testImplementation 'com.structurizr:structurizr-core:1.20.0'
+	testImplementation 'com.structurizr:structurizr-client:1.20.0'
+	testImplementation 'com.structurizr:structurizr-spring:1.3.5'
+	implementation 'com.structurizr:structurizr-annotations:1.3.5'
+
+
 	//from https://mariadb.com/kb/en/java-connector-using-gradle/
 	implementation 'org.mariadb.jdbc:mariadb-java-client:2.1.2'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'

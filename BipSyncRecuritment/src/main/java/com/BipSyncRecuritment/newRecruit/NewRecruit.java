@@ -25,6 +25,9 @@ public class NewRecruit {
     private String emergencyContactName;
     private String emergencyContactPhoneNumber;
 
+
+
+
     public Long getRecruitId(){
         return recruitId;
     }

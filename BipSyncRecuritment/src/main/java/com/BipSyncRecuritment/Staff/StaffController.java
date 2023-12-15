@@ -1,5 +1,6 @@
 package com.BipSyncRecuritment.Staff;
 
+import com.structurizr.annotation.UsedByPerson;
 import jakarta.validation.Valid;
 import org.mariadb.jdbc.internal.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller // handles the request and then delegates the return to a template
+
+@UsedByPerson(name = "Admin", description = "Manage Employees and Tasks", technology = "http(s)")
+
 public class StaffController {
     @Autowired
     private StaffRepository staffRepository;

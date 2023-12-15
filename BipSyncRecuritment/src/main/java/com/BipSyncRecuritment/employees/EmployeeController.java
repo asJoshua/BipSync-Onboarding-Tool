@@ -3,6 +3,7 @@ package com.BipSyncRecuritment.employees;
 import com.BipSyncRecuritment.email.EmailService;
 import com.BipSyncRecuritment.newRecruit.NewRecruit;
 import com.BipSyncRecuritment.newRecruit.NewRecruitService;
+import com.structurizr.annotation.UsedByPerson;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
+
+@UsedByPerson(name = "Admin", description = "Manage Employees and Tasks", technology = "http(s)")
+
 public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;

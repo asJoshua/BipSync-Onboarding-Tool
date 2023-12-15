@@ -1,6 +1,7 @@
 package com.BipSyncRecuritment.login;
 
 
+import com.structurizr.annotation.UsedByPerson;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -17,6 +18,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Controller
+@UsedByPerson(name = "Admin", description = "Login to website", technology = "http(s)")
+@UsedByPerson(name = "Staff", description = "Login to website", technology = "http(s)")
 public class UserController {
     @Autowired
     private UserDetailsService userDetailsService;

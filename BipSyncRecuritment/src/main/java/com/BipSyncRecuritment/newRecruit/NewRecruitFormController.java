@@ -2,6 +2,7 @@ package com.BipSyncRecuritment.newRecruit;
 
 import com.BipSyncRecuritment.employees.Employee;
 import com.BipSyncRecuritment.employees.EmployeeService;
+import com.structurizr.annotation.UsedByPerson;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
+
+@UsedByPerson(name = "Admin", description = "Manage Employees and Tasks", technology = "http(s)")
+
 public class NewRecruitFormController {
     private NewRecruitService newRecruitService;
     @Autowired
