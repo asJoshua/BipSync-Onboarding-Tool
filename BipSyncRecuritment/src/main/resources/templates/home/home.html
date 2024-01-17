@@ -23,6 +23,7 @@
                 <th scope="col">Task Name</th>
                 <th scope="col">Task Due Date</th>
                 <th scope="col">Responsibility</th>
+                <th scope="col">Employee Name</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,6 +32,7 @@
                 <td th:text="${task.taskName}"></td>
                 <td th:text="${task.taskDueDate}"></td>
                 <td th:text="${task.taskResponsibility}"></td>
+                <td th:text="${employeeNameForTask}"></td>
             </tr>
 
             </tbody>
@@ -42,6 +44,7 @@
             <th scope="col">Task Name</th>
             <th scope="col">Task Due Date</th>
             <th scope="col">Responsibility</th>
+            <th scope="col">Employee Name</th>
             </tr>
             </thead>
             <tbody>
@@ -50,7 +53,10 @@
                 <td th:text="${task.taskName}"></td>
                 <td th:text="${task.taskDueDate}"></td>
                 <td th:text="${task.taskResponsibility}"></td>
+                <td th:text="${employeeNameForTask}"></td>
             </tr>
+
+
 
             </tbody>
         </table>

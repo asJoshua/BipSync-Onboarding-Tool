@@ -35,4 +35,8 @@ public class TaskService {
         LocalDate currentDate = LocalDate.now();
         return taskRepository.findByTaskDueDateAfter(currentDate);
     }
+
+    public String getEmployeeNameForTask (Long taskId){
+        return taskRepository.findEmployeeNameByTaskId(taskId);
+    }
 }

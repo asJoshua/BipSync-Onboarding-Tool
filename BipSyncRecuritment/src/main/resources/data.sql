@@ -42,6 +42,10 @@ insert into tasks(task_id, task_name, task_due_date, task_responsibility)
 values(8,'Ensure all access cards are prepared','2023/12/27','IT');
 insert into tasks(task_id, task_name, task_due_date, task_responsibility)
 values(9,'Test','2024/12/27','IT');
+insert into tasks(task_id, task_name, task_due_date, task_responsibility)
+values(10,'Test','2024/12/27','IT');
+insert into tasks(task_id, task_name, task_due_date, task_responsibility)
+values(11,'Test','2024/12/27','IT');
 
 
 insert into StaffInfo (name, surname, email, role) values ('Heather', 'Perkins', 'HeatherHR@bipsync.com', 'Hr Manager');
