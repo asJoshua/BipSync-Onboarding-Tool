@@ -25,27 +25,11 @@ values ('Harper', 'Mitchell', '18-10-1997', '07865434545', '765678932', 'JW13467
 
 
 insert into tasks(task_id, task_name, task_due_date, task_responsibility)
-values(1,'Add to Company group lists and calenders','2023/12/20','HR');
+values(1,'Pending Dummy Test','2024/12/20','HR');
+
 insert into tasks(task_id, task_name, task_due_date, task_responsibility)
-values(2,'Create email accounts','2023/12/17','IT');
-insert into tasks(task_id, task_name, task_due_date, task_responsibility)
-values(3,'Prepare Contracts','2023/12/15','HR');
-insert into tasks(task_id, task_name, task_due_date, task_responsibility)
-values(4,'Sign contracts,tax forms','2023/12/18','HR');
-insert into tasks(task_id, task_name, task_due_date, task_responsibility)
-values(5,'Check confirmation of work permits','2023/12/14','HR');
-insert into tasks(task_id, task_name, task_due_date, task_responsibility)
-values(6,'Ensure correct IT equipment is updated and ready to use','2023/12/28','IT');
-insert into tasks(task_id, task_name, task_due_date, task_responsibility)
-values(7,'Set up Desk','2023/12/28','Facilities');
-insert into tasks(task_id, task_name, task_due_date, task_responsibility)
-values(8,'Ensure all access cards are prepared','2023/12/27','IT');
-insert into tasks(task_id, task_name, task_due_date, task_responsibility)
-values(9,'Test','2024/12/27','IT');
-insert into tasks(task_id, task_name, task_due_date, task_responsibility)
-values(10,'Test','2024/12/27','IT');
-insert into tasks(task_id, task_name, task_due_date, task_responsibility)
-values(11,'Test','2024/12/27','IT');
+values(2,'Pending Overdue Test','2023/12/20','HR');
+
 
 
 insert into StaffInfo (name, surname, email, role) values ('Heather', 'Perkins', 'HeatherHR@bipsync.com', 'Hr Manager');
@@ -56,9 +40,4 @@ insert into StaffInfo (name, surname, email, role) values ('Bill', 'Smith', 'Bil
 insert into StaffInfo (name, surname, email, role) values ('Luke', 'Jones', 'LukeJonesDevOps@bipsync.com', 'Dev ops');
 
 insert into employee_tasks(t_recruit_id, t_task_id) values(1,1);
-insert into employee_tasks(t_recruit_id, t_task_id) values(4,2);
-insert into employee_tasks(t_recruit_id, t_task_id) values(1,3);
-insert into employee_tasks(t_recruit_id, t_task_id) values(2,4);
-insert into employee_tasks(t_recruit_id, t_task_id) values(5,5);
-insert into employee_tasks(t_recruit_id, t_task_id) values(3,6);
-insert into employee_tasks(t_recruit_id, t_task_id) values(4,7);
+insert into employee_tasks(t_recruit_id, t_task_id) values(2,2);

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
 import java.security.Principal;
 @RestController
@@ -29,16 +30,19 @@ public class LandingPageController {
         List<Task> overdueTasks = taskService.getOverdueTasks();
         List<Task> notOverdueTasks = taskService.getNotOverdueTasks();
         List<Employee> employees = employeeService.getAllEmployees();
+        HashMap<Long, String> taskIdEmployeeName = new HashMap<>();
 
         for (Task task : tasks) {
             String employeeNameForTask = taskService.getEmployeeNameForTask(task.getTaskId());
-            model.addAttribute("employeeNameForTask", employeeNameForTask);
+            taskIdEmployeeName.put(task.getTaskId(),employeeNameForTask );
         }
 
         model.addAttribute("tasks", tasks);
         model.addAttribute("overdueTasks", overdueTasks);
         model.addAttribute("notOverdueTasks", notOverdueTasks);
         model.addAttribute("employees", employees);
+        model.addAttribute("employeeNameForTask", taskIdEmployeeName);
+
 
         ModelAndView modelAndView = new ModelAndView("home/home");
         return modelAndView;

@@ -20,19 +20,19 @@
         <h3>Overdue</h3>
         <table class="table table-striped">
             <thead>
+                <th scope="col">Employee Name</th>
                 <th scope="col">Task Name</th>
                 <th scope="col">Task Due Date</th>
                 <th scope="col">Responsibility</th>
-                <th scope="col">Employee Name</th>
                 </tr>
             </thead>
             <tbody>
 
             <tr th:each="task : ${overdueTasks}">
+                <td th:text="${employeeNameForTask[task.taskId]}"></td>
                 <td th:text="${task.taskName}"></td>
                 <td th:text="${task.taskDueDate}"></td>
                 <td th:text="${task.taskResponsibility}"></td>
-                <td th:text="${employeeNameForTask}"></td>
             </tr>
 
             </tbody>
@@ -41,19 +41,19 @@
         <h3>Not overdue</h3>
         <table class="table table-striped">
             <thead>
+            <th scope="col">Employee Name</th>
             <th scope="col">Task Name</th>
             <th scope="col">Task Due Date</th>
             <th scope="col">Responsibility</th>
-            <th scope="col">Employee Name</th>
             </tr>
             </thead>
             <tbody>
 
             <tr th:each="task : ${notOverdueTasks}">
+                <td th:text="${employeeNameForTask[task.taskId]}"></td>
                 <td th:text="${task.taskName}"></td>
                 <td th:text="${task.taskDueDate}"></td>
                 <td th:text="${task.taskResponsibility}"></td>
-                <td th:text="${employeeNameForTask}"></td>
             </tr>
 
 
