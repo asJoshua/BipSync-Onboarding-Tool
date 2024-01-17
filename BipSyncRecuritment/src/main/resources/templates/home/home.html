@@ -17,7 +17,7 @@
         <h1>Task Checklist</h1>
         <p>Tasks to be completed in chronological order.</p>
         <br>
-        <h3>Overdue</h3>
+        <h3 style="color: red; font-weight: bolder">Overdue</h3>
         <table class="table table-striped">
             <thead>
                 <th scope="col">Employee Name</th>
@@ -55,8 +55,6 @@
                 <td th:text="${task.taskDueDate}"></td>
                 <td th:text="${task.taskResponsibility}"></td>
             </tr>
-
-
 
             </tbody>
         </table>
