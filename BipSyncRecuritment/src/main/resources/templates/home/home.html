@@ -17,7 +17,7 @@
         <h1>Task Checklist</h1>
         <p>Tasks to be completed in chronological order.</p>
         <br>
-        <h3>To be Completed</h3>
+        <h3>Overdue</h3>
         <table class="table table-striped">
             <thead>
                 <th scope="col">Task Name</th>
@@ -27,7 +27,26 @@
             </thead>
             <tbody>
 
-            <tr th:each="task : ${tasks}">
+            <tr th:each="task : ${overdueTasks}">
+                <td th:text="${task.taskName}"></td>
+                <td th:text="${task.taskDueDate}"></td>
+                <td th:text="${task.taskResponsibility}"></td>
+            </tr>
+
+            </tbody>
+        </table>
+
+        <h3>Not overdue</h3>
+        <table class="table table-striped">
+            <thead>
+            <th scope="col">Task Name</th>
+            <th scope="col">Task Due Date</th>
+            <th scope="col">Responsibility</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="task : ${notOverdueTasks}">
                 <td th:text="${task.taskName}"></td>
                 <td th:text="${task.taskDueDate}"></td>
                 <td th:text="${task.taskResponsibility}"></td>

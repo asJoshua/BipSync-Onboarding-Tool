@@ -24,7 +24,12 @@ public class LandingPageController {
     @GetMapping("/home")
     public ModelAndView getHome(Model model) {
         List<Task> tasks = taskService.getAllTasks();
+        List<Task> overdueTasks = taskService.getOverdueTasks();
+        List<Task> notOverdueTasks = taskService.getNotOverdueTasks();
+
         model.addAttribute("tasks", tasks);
+        model.addAttribute("overdueTasks", overdueTasks);
+        model.addAttribute("notOverdueTasks", notOverdueTasks);
 
         ModelAndView modelAndView = new ModelAndView("home/home");
         return modelAndView;

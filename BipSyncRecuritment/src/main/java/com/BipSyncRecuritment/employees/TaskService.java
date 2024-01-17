@@ -25,4 +25,14 @@ public class TaskService {
     public void saveTask(Task task) {
     taskRepository.save(task);
     }
+
+    public List<Task> getOverdueTasks() {
+        LocalDate currentDate = LocalDate.now();
+        return taskRepository.findByTaskDueDateBefore(currentDate);
+    }
+
+    public List<Task> getNotOverdueTasks() {
+        LocalDate currentDate = LocalDate.now();
+        return taskRepository.findByTaskDueDateAfter(currentDate);
+    }
 }
